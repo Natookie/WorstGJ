@@ -6,10 +6,11 @@ using NaughtyAttributes;
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; private set; }
+    public static event Action<GameState> OnStateChanged;
 
     public enum GameState { Menu, Playing, Paused, GameOver }
     [ReadOnly] public GameState State;
-    public event Action<GameState> OnStateChanged;
+    public bool skipIntro = true;
 
     void Awake(){
         if(Instance == null){ 
@@ -20,7 +21,7 @@ public class GameManager : MonoBehaviour
     }
 
     void Start(){
-        ChangeState(GameState.Menu);
+        ChangeState(skipIntro ? GameState.Playing : GameState.Menu);
     }
 
     void Update(){
@@ -46,4 +47,17 @@ public class GameManager : MonoBehaviour
     public void ResumeGame() => ChangeState(GameState.Playing);
     public void PauseGame()  => ChangeState(GameState.Paused);
     public void GameOver()   => ChangeState(GameState.GameOver);
+
+    public void QuitApplication(){
+        #if UNITY_EDITOR
+            UnityEditor.EditorApplication.isPlaying = false;
+        #else
+            Application.Quit();
+        #endif
+    }
+
+    public void StartApplication(){
+        ChangeState(GameState.Playing);
+        DialogueLibrary.Instance.StartCoroutine(DialogueLibrary.Instance.PlayIntroSequence());
+    }
 }

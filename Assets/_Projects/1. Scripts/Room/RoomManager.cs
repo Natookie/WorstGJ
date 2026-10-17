@@ -28,22 +28,25 @@ public class RoomManager : MonoBehaviour
             if(room != startingRoom) room.SetActive(false);
         }
 
-        if(startingRoom != null) EnterRoom(startingRoom, startingRoom.DefaultSpawn);
+        if(startingRoom != null) EnterRoom(startingRoom, startingRoom.DefaultSpawn.position);
     }
 
-    public void Travel(Door from){
-        if(from == null) return;
-
-        if(!doors.TryGetValue(from.TargetId, out var target)){
-            Debug.LogWarning($"Door '{from.Id}' targets '{from.TargetId}', which doesn't exist");
-            return;
-        }
+    public void Travel(Door target, Door.EntryDirection entryDirection){
+        if(target == null) return;
 
         var targetRoom = target.GetComponentInParent<Room>(true);
-        EnterRoom(targetRoom, target.transform);
+        Vector2 offset = entryDirection switch{
+            Door.EntryDirection.Left  => Vector2.left,
+            Door.EntryDirection.Right => Vector2.right,
+            Door.EntryDirection.Up    => Vector2.up,
+            Door.EntryDirection.Down  => Vector2.down,
+            _ => Vector2.zero
+        };
+        Vector3 spawnPos = target.transform.position + (Vector3)offset * 2f;
+        EnterRoom(targetRoom, spawnPos);
     }
 
-    void EnterRoom(Room room, Transform spawn){
+    void EnterRoom(Room room, Vector3 spawn){
         if(room == null) return;
 
         if(currentRoom != null && currentRoom != room) currentRoom.SetActive(false);
@@ -52,13 +55,11 @@ public class RoomManager : MonoBehaviour
 
         ApplyBounds(room);
 
-        Vector3 spawnPos = spawn != null ? spawn.position : transform.position;
-
         if(playerRb != null){
-            playerRb.position = spawnPos;
+            playerRb.position = spawn;
             playerRb.linearVelocity = Vector2.zero;
         }
-        transform.position = spawnPos;
+        transform.position = spawn;
     }
 
     void ApplyBounds(Room room){

@@ -16,12 +16,12 @@ MonoBehaviour:
     LogFlags: -1
     PackedImagesEnabled: 1
     PackedImageCopyMode: 0
-    SuperSampleText: 0
+    SuperSampleText: 1
     EdgeSoftenWidth: 1
     UIBlock3DCornerDivisions: 8
     UIBlock3DEdgeDivisions: 8
-    UIBlock2DLightingModels: 1
-    TextBlockLightingModels: 1
+    UIBlock2DLightingModels: 15
+    TextBlockLightingModels: 9
     UIBlock3DLightingModels: 2
     ClickFrameDeltaThreshold: 1
   ButtonPrefab: {fileID: 2905764967384224460, guid: 33994460efecd9d4794903c0f8d9a630, type: 3}

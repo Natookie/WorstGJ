@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8506836cc67bacf4a821dd717abe9247, type: 3}
+  m_Name: SpeakerDatabase
+  m_EditorClassIdentifier: Assembly-CSharp::SpeakerDatabase
+  speakers:
+  - displayName: org 1
+    type: 0
+    textColor: {r: 0.70019317, g: 0.740566, b: 0.31788447, a: 1}
+  - displayName: org 2
+    type: 1
+    textColor: {r: 0.8632076, g: 0.105865076, b: 0.26848292, a: 1}

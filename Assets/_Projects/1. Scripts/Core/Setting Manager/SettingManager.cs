@@ -2,9 +2,11 @@ using System;
 using UnityEngine;
 using UnityEngine.Audio;
 
+[DefaultExecutionOrder(-90)]
 public class SettingsManager : MonoBehaviour
 {
     public static SettingsManager Instance { get; private set; }
+    public static event Action<SettingsData> OnSettingsChanged;
 
     private const string MasterParam = "MasterVolume";
     private const string BgmParam    = "BGMVolume";
@@ -18,8 +20,6 @@ public class SettingsManager : MonoBehaviour
 
     [Header("DEFAULTS")]
     [SerializeField] private SettingsData defaults = new SettingsData();
-
-    public event Action<SettingsData> OnSettingsChanged;
 
     public SettingsData Current { get; private set; }
 

@@ -14,7 +14,6 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private RectTransform frameRect;
 
     [Header("MOVEMENT")]
-    [SerializeField] private float maxSpeed = 12f;
     [SerializeField] private float acceleration = 30f;
     [SerializeField] private float linearDrag = 0.8f;
     [SerializeField] private float turnSpeed = 720f;
@@ -30,7 +29,7 @@ public class PlayerMovement : MonoBehaviour
     private Vector2 _facing = Vector2.up;
     private bool _forward;
 
-    public bool IsBusy => cameraController != null && cameraController.IsTransitioning;
+    public bool IsBusy => (cameraController != null && cameraController.IsTransitioning) || DialogueManager.Instance.IsVisible();
 
     void Awake(){
         rb.gravityScale = 0f;
@@ -49,8 +48,10 @@ public class PlayerMovement : MonoBehaviour
 
         _forward = Keyboard.current.wKey.isPressed;
 
-        Vector2 mouseFacing = GetMouseDirection();
-        if(mouseFacing.sqrMagnitude > 0.0001f) _facing = mouseFacing;
+        if(!_forward){
+            Vector2 mouseFacing = GetMouseDirection();
+            if(mouseFacing.sqrMagnitude > 0.0001f) _facing = mouseFacing;
+        }
 
         transform.rotation = Quaternion.RotateTowards(
             transform.rotation,
