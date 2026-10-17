@@ -3,6 +3,9 @@ using UnityEngine;
 public interface IInteractable
 {
     bool CanInteract { get; }
-    void OnInteract(GameObject interactor);
     string promptMessage { get;}
+    
+    void OnHover(GameObject interactor);
+    void OnUnhover(GameObject interactor);
+    void OnInteract(GameObject interactor);
 }

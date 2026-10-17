@@ -10,6 +10,10 @@ public class Computer : MonoBehaviour, IInteractable
     public Transform Transform => transform;
     public string promptMessage => inUse ? "Exit" : "Use Computer";
 
+    public void OnHover(GameObject interactor){}
+
+    public void OnUnhover(GameObject interactor){}
+
     public void OnInteract(GameObject interactor){
         if(!interactor.TryGetComponent(out PlayerMovement p)) return;
         if(!interactor.TryGetComponent(out PlayerInteractor pi)) return;

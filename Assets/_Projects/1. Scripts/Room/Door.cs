@@ -15,5 +15,9 @@ public class Door : MonoBehaviour, IInteractable
     public Transform Transform => transform;
     public string promptMessage => label;
 
+    public void OnHover(GameObject interactor) {}
+    
+    public void OnUnhover(GameObject interactor) {}
+
     public void OnInteract(GameObject interactor) => RoomManager.Instance.Travel(targetDoor, entryDirection);
 }
