@@ -20477,6 +20477,7 @@ MonoBehaviour:
   turnSpeed: 720
   knockbackForce: 5
   minKnockbackImpact: 1
+  isEnabled: 1
 --- !u!95 &2032196913
 Animator:
   serializedVersion: 7

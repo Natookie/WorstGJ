@@ -22,6 +22,8 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float knockbackForce = 4f;
     [SerializeField] private float minKnockbackImpact = 1f;
 
+    public bool isEnabled = true;
+
     static readonly int HashX     = Animator.StringToHash("X");
     static readonly int HashY     = Animator.StringToHash("Y");
     static readonly int HashSpeed = Animator.StringToHash("Speed");
@@ -45,6 +47,7 @@ public class PlayerMovement : MonoBehaviour
             UpdateAnimator();
             return;
         }
+        if (!isEnabled) return;
 
         _forward = Keyboard.current.wKey.isPressed;
 
@@ -66,6 +69,7 @@ public class PlayerMovement : MonoBehaviour
             rb.linearVelocity = Vector2.zero;
             return;
         }
+        if (!isEnabled) return;
 
         if(_forward) rb.AddForce(_facing * acceleration, ForceMode2D.Force);
 
@@ -131,6 +135,14 @@ public class PlayerMovement : MonoBehaviour
     public Vector2 Velocity => rb.linearVelocity;
     public Vector2 Facing   => _facing;
 
-    public void EnterComputerMode() => cameraController.EnterComputerMode();
-    public void ExitComputerMode() => cameraController.ExitComputerMode();
+    public void EnterComputerMode()
+    {
+        isEnabled = false;
+        cameraController.EnterComputerMode();
+    }
+    public void ExitComputerMode()
+    {
+        isEnabled = true;
+        cameraController.ExitComputerMode();
+    }
 }
