@@ -3,48 +3,85 @@ using UnityEngine.InputSystem;
 
 public class PlayerInteractor : MonoBehaviour
 {
-    [SerializeField] private float radius = 1.5f;
+    public enum ForwardAxis { Right, Up }
+
+    [SerializeField] private ForwardAxis forwardAxis = ForwardAxis.Right;
+    [SerializeField] private float range = 1.5f;
     [SerializeField] private float scanInterval = 0.1f;
+    [SerializeField] private Vector2 originOffset = Vector2.zero;
+    [SerializeField] private LayerMask interactableMask = ~0;
     [SerializeField] private InteractionPromptUI promptUI;
 
-    private readonly Collider2D[] _buffer = new Collider2D[16];
+    private readonly RaycastHit2D[] _buffer = new RaycastHit2D[8];
+    private ContactFilter2D _filter;
     private IInteractable current;
+    private Vector2 _lastFacing;
     private float _timer;
 
-    void Update(){
+    private Vector2 Facing =>
+        forwardAxis == ForwardAxis.Right ? (Vector2)transform.right : (Vector2)transform.up;
+
+
+    void Awake()
+    {
+        _filter = new ContactFilter2D
+        {
+            useLayerMask = true,
+            layerMask = interactableMask,
+            useTriggers = true
+        };
+    }
+
+    void Update()
+    {
         _timer -= Time.deltaTime;
-        if(_timer <= 0f){
+
+        // Retarget immediately when the player turns, otherwise on the interval.
+        Vector2 facing = Facing;
+        bool turned = (facing - _lastFacing).sqrMagnitude > 0.0001f;
+
+        if (_timer <= 0f || turned)
+        {
             _timer = scanInterval;
-            UpdateTarget();
+            _lastFacing = facing;
+            UpdateTarget(facing);
         }
 
-        if(current != null && Keyboard.current.eKey.wasPressedThisFrame)
+        if (current != null && Keyboard.current.eKey.wasPressedThisFrame)
             current.OnInteract(gameObject);
     }
 
-    void UpdateTarget(){
-        int count = Physics2D.OverlapCircleNonAlloc(transform.position, radius, _buffer);
+    void UpdateTarget(Vector2 facing)
+    {
+        Vector2 origin = (Vector2)transform.position + originOffset;
+        int count = Physics2D.Raycast(origin, facing, _filter, _buffer, range);
 
-        IInteractable closest = null;
-        float closestDist = float.MaxValue;
+        IInteractable found = null;
 
-        for(int i = 0; i < count; i++){
-            var hit = _buffer[i];
-            if(!hit.TryGetComponent(out IInteractable interactable)) continue;
-            if(!interactable.CanInteract) continue;
+        // Results are sorted nearest-first, so the first valid hit wins.
+        for (int i = 0; i < count; i++)
+        {
+            var hit = _buffer[i].collider;
+            if (hit.transform.IsChildOf(transform)) continue; // ignore the player's own colliders
+            if (!hit.TryGetComponent(out IInteractable interactable)) continue;
+            if (!interactable.CanInteract) continue;
 
-            float dist = ((Vector2)hit.transform.position - (Vector2)transform.position).sqrMagnitude;
-            if(dist >= closestDist) continue;
-
-            closestDist = dist;
-            closest = interactable;
+            found = interactable;
+            break;
         }
 
-        if(ReferenceEquals(closest, current)) return;
+        if (ReferenceEquals(found, current)) return;
 
-        current = closest;
+        current = found;
         Refresh();
     }
 
     public void Refresh() => promptUI?.Show(current?.promptMessage);
+
+    void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.yellow;
+        Vector2 origin = (Vector2)transform.position + originOffset;
+        Gizmos.DrawLine(origin, origin + Facing * range);
+    }
 }
