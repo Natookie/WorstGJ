@@ -9,11 +9,19 @@ public class CoreButton : MonoBehaviour
     [Header("REFERENCES")]
     [SerializeField] private UIBlock2D containerBlock;
     [SerializeField] private UIBlock2D baseBlock;
+    [SerializeField] private UIBlock2D baseIconBlock;
     [SerializeField] private TextBlock baseTextBlock;
     [SerializeField] private UIBlockAnimator animator;
 
     [Header("STATE")]
     [SerializeField] private bool animate = true;
+
+    [Header("COLOR SYNC")]
+    [SerializeField] private bool syncIconWithText = true;
+
+    [Header("CHANNEL")]
+    [SerializeField] private ButtonClickChannel clickChannel;
+    [SerializeField] private string clickId;
 
     [Header("EVENTS")]
     [SerializeField] private UnityEvent onClick   = new UnityEvent();
@@ -35,15 +43,15 @@ public class CoreButton : MonoBehaviour
     [System.Serializable]
     public struct ScaleSet
     {
-        public Vector3 from;
-        public Vector3 to;
+        public Vector2 from;
+        public Vector2 to;
     }
 
     [System.Serializable]
     public struct MoveSet
     {
-        public Vector3 from;
-        public Vector3 to;
+        public Vector2 from;
+        public Vector2 to;
     }
 
     [System.Serializable]
@@ -58,6 +66,7 @@ public class CoreButton : MonoBehaviour
     [ShowIf("animate")] [SerializeField] private bool showColor = true;
     [ShowIf("ShowBlockColor")] [SerializeField] private ColorSet baseColors;
     [ShowIf("ShowTextColor")]  [SerializeField] private ColorSet textColors;
+    [ShowIf("ShowIconColor")]  [SerializeField] private ColorSet iconColors;
 
     [Header("ANIMATION")]
     [ShowIf("animate")] [SerializeField] private float colorDuration = 0.1f;
@@ -84,19 +93,24 @@ public class CoreButton : MonoBehaviour
 
     bool ShowBlockColor => animate && showColor && baseBlock != null;
     bool ShowTextColor  => animate && showColor && baseTextBlock != null;
+    bool ShowIconColor  => animate && showColor && baseIconBlock != null;
+
+    ColorSet EffectiveIconColors => syncIconWithText ? textColors : iconColors;
 
     [Button("Initialize", EButtonEnableMode.Editor)]
     public void Init(){
         containerBlock = GetComponent<UIBlock2D>();
         if(containerBlock) baseBlock = containerBlock.GetChild(0).GetComponent<UIBlock2D>();
-        if(baseBlock) baseTextBlock = baseBlock.GetChild(0).GetComponent<TextBlock>();
+        if(baseBlock) baseTextBlock = baseBlock.GetChild(1).GetComponent<TextBlock>();
+        if(baseBlock) baseIconBlock = baseBlock.GetChild(0).GetComponent<UIBlock2D>();
 
         if(animator == null) animator = GetComponent<UIBlockAnimator>();
     }
+
     [Button("Add Animator", EButtonEnableMode.Editor)]
     public void AddAnimator(){
         if(animator == null) animator = gameObject.AddComponent<UIBlockAnimator>();
-        animator.Assign(baseBlock, baseTextBlock);
+        animator.Assign(baseBlock, baseTextBlock, baseIconBlock);
     }
 
     void Awake(){
@@ -115,6 +129,7 @@ public class CoreButton : MonoBehaviour
         if(animate){
             if(ShowBlockColor) animator.AnimateBlockColor(baseColors.clicked, colorDuration);
             if(ShowTextColor)  animator.AnimateTextColor(textColors.clicked, colorDuration);
+            if(ShowIconColor)  animator.AnimateIconColor(EffectiveIconColors.clicked, colorDuration);
 
             if(scaleOnClick) animator.AnimateScale(clickScale.from, clickScale.to, clickDuration);
             if(moveOnClick)  animator.AnimateMove(clickMove.from, clickMove.to, clickDuration);
@@ -122,12 +137,14 @@ public class CoreButton : MonoBehaviour
         }
 
         onClick?.Invoke();
+        if(clickChannel != null) clickChannel.Raise(clickId);
     }
 
     void OnButtonHover(Gesture.OnHover evt){
         if(animate){
             if(ShowBlockColor) animator.AnimateBlockColor(baseColors.hover, colorDuration);
             if(ShowTextColor)  animator.AnimateTextColor(textColors.hover, colorDuration);
+            if(ShowIconColor)  animator.AnimateIconColor(EffectiveIconColors.hover, colorDuration);
 
             if(scaleOnHover) animator.AnimateScale(hoverScale.from, hoverScale.to, hoverDuration);
             if(moveOnHover)  animator.AnimateMove(hoverMove.from, hoverMove.to, hoverDuration);

@@ -6,39 +6,44 @@ public class UIBlockAnimator : MonoBehaviour
     [Header("REFERENCES")]
     [SerializeField] private UIBlock2D baseBlock;
     [SerializeField] private TextBlock baseTextBlock;
+    [SerializeField] private UIBlock2D baseIconBlock;
 
     [Header("DEFAULTS")]
     [SerializeField] private float colorDuration = 0.1f;
-    [SerializeField] private float hoverDuration = 0.15f;
-    [SerializeField] private float clickDuration = 0.1f;
 
     private AnimationHandle blockColorHandle;
     private AnimationHandle textColorHandle;
+    private AnimationHandle iconColorHandle;
     private AnimationHandle scaleHandle;
     private AnimationHandle moveHandle;
     private AnimationHandle shakeHandle;
 
-    private Vector3 originalScale;
-    private Vector3 originalPosition;
+    private Vector2 originalSize;
+    private Vector2 originalPosition;
     private Color32 originalBlockColor;
     private Color32 originalTextColor;
+    private Color32 originalIconColor;
 
-    public Vector3 OriginalScale    => originalScale;
-    public Vector3 OriginalPosition => originalPosition;
+    public Vector2 OriginalSize     => originalSize;
+    public Vector2 OriginalPosition => originalPosition;
 
-    void Awake() => CaptureOriginals();
-    public void Assign(UIBlock2D block, TextBlock text){
+    public void Assign(UIBlock2D block, TextBlock text, UIBlock2D icon = null){
         baseBlock = block;
         baseTextBlock = text;
+        baseIconBlock = icon;
+        CaptureOriginals();
     }
 
     public void CaptureOriginals(){
         if(baseBlock != null){
-            originalScale = baseBlock.transform.localScale;
-            originalPosition = baseBlock.transform.localPosition;
+            originalSize = baseBlock.Size.XY.Value;
+            originalPosition = baseBlock.Position.XY.Value;
             originalBlockColor = baseBlock.Color;
         }
-        if(baseTextBlock != null) originalTextColor = baseTextBlock.Color;
+        if(baseTextBlock != null)
+            originalTextColor = baseTextBlock.Color;
+        if(baseIconBlock != null)
+            originalIconColor = baseIconBlock.Color;
     }
 
     public void AnimateBlockColor(Color32 target, float duration){
@@ -55,21 +60,29 @@ public class UIBlockAnimator : MonoBehaviour
         }.Run(duration);
     }
 
-    public void AnimateScale(Vector3 fromMultiplier, Vector3 toMultiplier, float duration, bool fromCurrent = false){
-        scaleHandle.Cancel();
-        scaleHandle = new ScaleAnimation{
-            Transform = baseBlock.transform,
-            From = fromCurrent ? baseBlock.transform.localScale : Vector3.Scale(originalScale, fromMultiplier),
-            To = Vector3.Scale(originalScale, toMultiplier)
+    public void AnimateIconColor(Color32 target, float duration){
+        if(baseIconBlock == null) return;
+        iconColorHandle.Cancel();
+        iconColorHandle = new BlockColorAnimation{
+            Block = baseIconBlock, From = baseIconBlock.Color, To = target
         }.Run(duration);
     }
 
-    public void AnimateMove(Vector3 fromOffset, Vector3 toOffset, float duration, bool fromCurrent = false){
+    public void AnimateScale(Vector2 fromMultiplier, Vector2 toMultiplier, float duration, bool fromCurrent = false){
+        scaleHandle.Cancel();
+        scaleHandle = new ScaleAnimation{
+            Block = baseBlock,
+            From = fromCurrent ? baseBlock.Size.XY.Value : Vector2.Scale(originalSize, fromMultiplier),
+            To = Vector2.Scale(originalSize, toMultiplier)
+        }.Run(duration);
+    }
+
+    public void AnimateMove(Vector2 fromTarget, Vector2 toTarget, float duration, bool fromCurrent = false){
         moveHandle.Cancel();
         moveHandle = new MoveAnimation{
-            Transform = baseBlock.transform,
-            From = fromCurrent ? baseBlock.transform.localPosition : originalPosition + fromOffset,
-            To = originalPosition + toOffset
+            Block = baseBlock,
+            From = fromCurrent ? baseBlock.Position.XY.Value : fromTarget,
+            To = toTarget
         }.Run(duration);
     }
 
@@ -77,7 +90,7 @@ public class UIBlockAnimator : MonoBehaviour
         if(Mathf.Approximately(amplitude, 0f) || duration <= 0f) return;
         shakeHandle.Cancel();
         shakeHandle = new ShakeAnimation{
-            Transform = baseBlock.transform,
+            Block = baseBlock,
             Origin = originalPosition,
             Amplitude = amplitude,
             Frequency = frequency,
@@ -86,10 +99,12 @@ public class UIBlockAnimator : MonoBehaviour
     }
 
     public void ResetToOriginals(float duration){
-        AnimateBlockColor(originalBlockColor, duration);
-        AnimateTextColor(originalTextColor, duration);
-        AnimateScale(Vector3.one, Vector3.one, duration, true);
-        AnimateMove(Vector3.zero, Vector3.zero, duration, true);
+        if(baseBlock != null)     AnimateBlockColor(originalBlockColor, duration);
+        if(baseTextBlock != null) AnimateTextColor(originalTextColor, duration);
+        if(baseIconBlock != null) AnimateIconColor(originalIconColor, duration);
+
+        AnimateScale(Vector2.one, Vector2.one, duration, true);
+        AnimateMove(originalPosition, originalPosition, duration, true);
     }
 }
 
@@ -111,24 +126,32 @@ public struct TextColorAnimation : IAnimation
 
 public struct ScaleAnimation : IAnimation
 {
-    public Transform Transform;
-    public Vector3 From;
-    public Vector3 To;
-    public void Update(float percentDone) => Transform.localScale = Vector3.Lerp(From, To, percentDone);
+    public UIBlock2D Block;
+    public Vector2 From;
+    public Vector2 To;
+
+    public void Update(float percentDone){
+        Block.Size.X.Value = Mathf.Lerp(From.x, To.x, percentDone);
+        Block.Size.Y.Value = Mathf.Lerp(From.y, To.y, percentDone);
+    }
 }
 
 public struct MoveAnimation : IAnimation
 {
-    public Transform Transform;
-    public Vector3 From;
-    public Vector3 To;
-    public void Update(float percentDone) => Transform.localPosition = Vector3.Lerp(From, To, percentDone);
+    public UIBlock2D Block;
+    public Vector2 From;
+    public Vector2 To;
+
+    public void Update(float percentDone){
+        Block.Position.X.Value = Mathf.Lerp(From.x, To.x, percentDone);
+        Block.Position.Y.Value = Mathf.Lerp(From.y, To.y, percentDone);
+    }
 }
 
 public struct ShakeAnimation : IAnimation
 {
-    public Transform Transform;
-    public Vector3 Origin;
+    public UIBlock2D Block;
+    public Vector2 Origin;
     public float Amplitude;
     public float Frequency;
     public float Duration;
@@ -137,6 +160,7 @@ public struct ShakeAnimation : IAnimation
         float decay = 1f - percentDone;
         float phase = percentDone * Duration * Frequency * Mathf.PI * 2f;
         float offset = Mathf.Sin(phase) * Amplitude * decay;
-        Transform.localPosition = Origin + new Vector3(offset, 0f, 0f);
+        Block.Position.X.Value = Origin.x + offset;
+        Block.Position.Y.Value = Origin.y;
     }
 }

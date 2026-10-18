@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using Nova;
 
 [RequireComponent(typeof(Rigidbody2D))]
 public class PlayerMovement : MonoBehaviour
@@ -11,7 +12,8 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private BoxConfinement2D confinement;
     [SerializeField] private CameraController cameraController;
     [SerializeField] private Camera worldCamera;
-    [SerializeField] private RectTransform frameRect;
+    [SerializeField] private Camera uiCamera;
+    [SerializeField] private UIBlock2D rtDisplay;
 
     [Header("MOVEMENT")]
     [SerializeField] private float acceleration = 30f;
@@ -104,22 +106,36 @@ public class PlayerMovement : MonoBehaviour
     }
 
     Vector2 GetMouseDirection(){
-        if(worldCamera == null || frameRect == null || Mouse.current == null) return Vector2.zero;
+        if(worldCamera == null || uiCamera == null || rtDisplay == null || Mouse.current == null)
+            return Vector2.zero;
 
         Vector2 screenPos = Mouse.current.position.ReadValue();
-        Vector2 screenCenter = new Vector2(Screen.width * 0.5f, Screen.height * 0.5f);
-        Vector2 offset = screenPos - screenCenter;
+        Ray uiRay = uiCamera.ScreenPointToRay(screenPos);
 
-        Vector2 viewport = new Vector2(
-            offset.x / frameRect.rect.width + 0.5f,
-            offset.y / frameRect.rect.height + 0.5f);
+        var hits = new System.Collections.Generic.List<UIBlockHit>();
+        Interaction.RaycastAll(uiRay, hits);
 
-        Ray ray = worldCamera.ViewportPointToRay(viewport);
+        UIBlockHit hit = default;
+        bool found = false;
+        foreach(var h in hits){
+            if(h.UIBlock == rtDisplay){ hit = h; found = true; break; }
+        }
+
+        if(!found) return Vector2.zero;
+
+        Vector3 local = rtDisplay.transform.InverseTransformPoint(hit.Position);
+        Vector2 size = rtDisplay.CalculatedSize.XY.Value;
+
+        if(size.x <= 0f || size.y <= 0f) return Vector2.zero;
+
+        Vector2 uv = new Vector2(local.x / size.x + 0.5f, local.y / size.y + 0.5f);
+
+        Ray worldRay = worldCamera.ViewportPointToRay(uv);
         var plane = new Plane(Vector3.forward, Vector3.zero);
 
-        if(!plane.Raycast(ray, out float dist)) return Vector2.zero;
+        if(!plane.Raycast(worldRay, out float dist)) return Vector2.zero;
 
-        Vector3 world = ray.GetPoint(dist);
+        Vector3 world = worldRay.GetPoint(dist);
         Vector2 dir = (Vector2)(world - transform.position);
         return dir.sqrMagnitude > 0.0001f ? dir.normalized : Vector2.zero;
     }
@@ -135,13 +151,12 @@ public class PlayerMovement : MonoBehaviour
     public Vector2 Velocity => rb.linearVelocity;
     public Vector2 Facing   => _facing;
 
-    public void EnterComputerMode()
-    {
+    public void EnterComputerMode(){
         isEnabled = false;
         cameraController.EnterComputerMode();
     }
-    public void ExitComputerMode()
-    {
+
+    public void ExitComputerMode(){
         isEnabled = true;
         cameraController.ExitComputerMode();
     }

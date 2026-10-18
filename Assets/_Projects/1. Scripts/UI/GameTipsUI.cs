@@ -4,18 +4,17 @@ using NaughtyAttributes;
 public class GameTipsUI : MonoBehaviour
 {
     [SerializeField] private UIBlockAnimator uiBlockAnimator;
-    [SerializeField] private Vector3 targetPosition;
+    [SerializeField] private Vector2 targetPosition;
     [SerializeField] private float duration;
-    [Space(10)]
     [SerializeField] private Vector2 timer;
-
-    private float elapsedTime;
-    private float popupTime;
-    private Vector3 originalPosition;
-    private bool isShowing;
+    [Space(10)]
+    [ReadOnly] public float elapsedTime;
+    [ReadOnly] public float popupTime;
+    [ReadOnly] public Vector2 originalPosition;
+    [ReadOnly] public bool isShowing;
 
     void Start(){
-        originalPosition = uiBlockAnimator.transform.localPosition;
+        originalPosition = uiBlockAnimator.OriginalPosition;
         popupTime = Random.Range(timer.x, timer.y);
     }
 
