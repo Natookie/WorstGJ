@@ -27,6 +27,8 @@ public class UIBlockAnimator : MonoBehaviour
     public Vector2 OriginalSize     => originalSize;
     public Vector2 OriginalPosition => originalPosition;
 
+    void Start() => CaptureOriginals();
+
     public void Assign(UIBlock2D block, TextBlock text, UIBlock2D icon = null){
         baseBlock = block;
         baseTextBlock = text;

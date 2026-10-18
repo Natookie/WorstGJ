@@ -49,7 +49,7 @@ public class PlayerMovement : MonoBehaviour
             UpdateAnimator();
             return;
         }
-        if (!isEnabled) return;
+        if(!isEnabled) return;
 
         _forward = Keyboard.current.wKey.isPressed;
 
@@ -71,7 +71,7 @@ public class PlayerMovement : MonoBehaviour
             rb.linearVelocity = Vector2.zero;
             return;
         }
-        if (!isEnabled) return;
+        if(!isEnabled) return;
 
         if(_forward) rb.AddForce(_facing * acceleration, ForceMode2D.Force);
 

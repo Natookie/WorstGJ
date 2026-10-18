@@ -1,24 +1,35 @@
 using UnityEngine;
 using NaughtyAttributes;
+using System.Collections;
+using Nova;
 
 public class GameTipsUI : MonoBehaviour
 {
     [SerializeField] private UIBlockAnimator uiBlockAnimator;
     [SerializeField] private Vector2 targetPosition;
     [SerializeField] private float duration;
-    [SerializeField] private Vector2 timer;
     [Space(10)]
-    [ReadOnly] public float elapsedTime;
-    [ReadOnly] public float popupTime;
-    [ReadOnly] public Vector2 originalPosition;
-    [ReadOnly] public bool isShowing;
+    [SerializeField] private Vector2 timer;
+
+    private float elapsedTime;
+    private float popupTime;
+    private Vector2 originalPosition;
+    private bool isShowing;
+    private bool initialized;
 
     void Start(){
+        StartCoroutine(InitAfterLayout());
+    }
+
+    IEnumerator InitAfterLayout(){
+        yield return null;
         originalPosition = uiBlockAnimator.OriginalPosition;
+        initialized = true;
         popupTime = Random.Range(timer.x, timer.y);
     }
 
     void Update(){
+        if(!initialized) return;
         if(isShowing) return;
         if(GameManager.Instance.State != GameManager.GameState.Playing) return;
 

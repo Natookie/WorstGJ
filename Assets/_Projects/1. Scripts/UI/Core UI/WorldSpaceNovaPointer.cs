@@ -9,6 +9,9 @@ public class WorldSpaceNovaPointer : MonoBehaviour
     [SerializeField] private Camera uiCamera;
     [SerializeField] private UIBlock2D rtDisplay;
     [SerializeField] private uint pointerId = 1;
+    [SerializeField] private uint scrollId = 2;
+    [SerializeField] private float scrollMultiplier = 1f;
+    [SerializeField] private bool invertScrolling = true;
 
     private readonly List<UIBlockHit> hitsBuffer = new();
 
@@ -25,11 +28,7 @@ public class WorldSpaceNovaPointer : MonoBehaviour
         UIBlockHit hit = default;
         bool found = false;
         foreach(var h in hitsBuffer){
-            if(h.UIBlock == rtDisplay){ 
-                hit = h; 
-                found = true; 
-                break; 
-            }
+            if(h.UIBlock == rtDisplay){ hit = h; found = true; break; }
         }
 
         if(!found){
@@ -42,6 +41,29 @@ public class WorldSpaceNovaPointer : MonoBehaviour
         Vector2 uv = new Vector2(local.x / size.x + 0.5f, local.y / size.y + 0.5f);
 
         Ray worldRay = worldCamera.ViewportPointToRay(uv);
-        Interaction.Point(new Interaction.Update(worldRay, pointerId), Mouse.current.leftButton.isPressed);
+
+        Vector2 scrollDelta = Mouse.current.scroll.ReadValue().normalized;
+        if(invertScrolling) scrollDelta.y *= -1f;
+        if(scrollDelta != Vector2.zero){
+            var scrollUpdate = new Interaction.Update(worldRay, scrollId);
+            Interaction.Scroll(scrollUpdate, scrollDelta * scrollMultiplier);
+        }
+
+        bool pressed = Mouse.current.leftButton.isPressed;
+        Interaction.Point(new Interaction.Update(worldRay, pointerId), pressed);
+
+        if(Mouse.current.leftButton.wasPressedThisFrame){
+            hitsBuffer.Clear();
+            Interaction.RaycastAll(worldRay, hitsBuffer);
+
+            UIBlock topHit = null;
+            foreach(var h in hitsBuffer){
+                if(h.UIBlock == rtDisplay) continue;
+                topHit = h.UIBlock;
+                break;
+            }
+
+            TextFieldManager.OnGlobalPress(topHit);
+        }
     }
 }
