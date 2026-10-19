@@ -49,6 +49,8 @@ public class UIBlockAnimator : MonoBehaviour
     }
 
     public void AnimateBlockColor(Color32 target, float duration){
+        if(baseBlock == null) return;
+        if(baseBlock.Color.Equals(target)) return;
         blockColorHandle.Cancel();
         blockColorHandle = new BlockColorAnimation{
             Block = baseBlock, From = baseBlock.Color, To = target
@@ -56,6 +58,8 @@ public class UIBlockAnimator : MonoBehaviour
     }
 
     public void AnimateTextColor(Color32 target, float duration){
+        if(baseTextBlock == null) return;
+        if(baseTextBlock.Color.Equals(target)) return;
         textColorHandle.Cancel();
         textColorHandle = new TextColorAnimation{
             Text = baseTextBlock, From = baseTextBlock.Color, To = target
@@ -64,6 +68,7 @@ public class UIBlockAnimator : MonoBehaviour
 
     public void AnimateIconColor(Color32 target, float duration){
         if(baseIconBlock == null) return;
+        if(baseIconBlock.Color.Equals(target)) return;
         iconColorHandle.Cancel();
         iconColorHandle = new BlockColorAnimation{
             Block = baseIconBlock, From = baseIconBlock.Color, To = target

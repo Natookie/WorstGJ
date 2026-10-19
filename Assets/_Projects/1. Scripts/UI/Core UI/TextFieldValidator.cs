@@ -71,19 +71,21 @@ public class TextFieldValidator : MonoBehaviour
             if(!char.IsLetterOrDigit(c) && !char.IsWhiteSpace(c)) return true;
         return false;
     }
-
-    public string GetRuleName(){
+    
+    public string GetRequirement(){
         switch(rule){
             case RuleType.Required:         return "Required";
-            case RuleType.Email:            return "Email";
-            case RuleType.Length:           return $"Length({intParam.x}-{intParam.y})";
-            case RuleType.NoSpaces:         return "NoSpaces";
-            case RuleType.Alphanumeric:     return "Alphanumeric";
-            case RuleType.Numeric:          return "Numeric";
-            case RuleType.HasSymbol:        return "HasSymbol";
-            case RuleType.Regex:            return $"Regex({stringParam})";
-            case RuleType.EqualsLiteral:    return $"EqualsLiteral({literalValue})";
-            case RuleType.NotEqualsLiteral: return $"NotEqualsLiteral({forbiddenValue})";
+            case RuleType.Email:            return "Must be a valid email";
+            case RuleType.Length:           return $"Must be {intParam.x}–{intParam.y} characters";
+            case RuleType.NoSpaces:         return "Must not contain spaces";
+            case RuleType.Alphanumeric:     return "Letters and numbers only";
+            case RuleType.Numeric:          return "Must be a number";
+            case RuleType.HasSymbol:        return "Must contain a symbol";
+            case RuleType.Regex:            return $"Must match pattern: {stringParam}";
+            case RuleType.EqualsLiteral:    return matchMode == MatchMode.IgnoreCase
+                                                    ? $"Must equal \"{literalValue}\" (case-insensitive)"
+                                                    : $"Must equal \"{literalValue}\"";
+            case RuleType.NotEqualsLiteral: return $"Must not equal \"{forbiddenValue}\"";
         }
         return rule.ToString();
     }

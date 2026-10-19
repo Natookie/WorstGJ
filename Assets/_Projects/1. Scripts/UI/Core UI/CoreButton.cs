@@ -68,6 +68,11 @@ public class CoreButton : MonoBehaviour
     [ShowIf("ShowTextColor")]  [SerializeField] private ColorSet textColors;
     [ShowIf("ShowIconColor")]  [SerializeField] private ColorSet iconColors;
 
+    [Header("SELECTED COLORS")]
+    [ShowIf("ShowBlockColor")] [SerializeField] private ColorSet selectedColors;
+    [ShowIf("ShowTextColor")]  [SerializeField] private ColorSet selectedTextColors;
+    [ShowIf("ShowIconColor")]  [SerializeField] private ColorSet selectedIconColors;
+
     [Header("ANIMATION")]
     [ShowIf("animate")] [SerializeField] private float colorDuration = 0.1f;
     [ShowIf("animate")] [SerializeField] private float hoverDuration = 0.15f;
@@ -95,7 +100,13 @@ public class CoreButton : MonoBehaviour
     bool ShowTextColor  => animate && showColor && baseTextBlock != null;
     bool ShowIconColor  => animate && showColor && baseIconBlock != null;
 
-    ColorSet EffectiveIconColors => syncIconWithText ? textColors : iconColors;
+    ColorSet EffectiveIconColors         => syncIconWithText ? textColors : iconColors;
+    ColorSet EffectiveSelectedIconColors => syncIconWithText ? selectedTextColors : selectedIconColors;
+
+    private bool _isSelected;
+    private bool _isHovered;
+
+    public bool IsSelected => _isSelected;
 
     [Button("Initialize", EButtonEnableMode.Editor)]
     public void Init(){
@@ -118,7 +129,14 @@ public class CoreButton : MonoBehaviour
 
         if(animator == null) animator = GetComponent<UIBlockAnimator>();
         if(animator == null) animate = false;
-        if(animate) animator.CaptureOriginals();
+
+        if(animate){
+            animator.CaptureOriginals();
+
+            if(ShowBlockColor) animator.AnimateBlockColor(baseColors.unhover, 0f);
+            if(ShowTextColor)  animator.AnimateTextColor(textColors.unhover, 0f);
+            if(ShowIconColor)  animator.AnimateIconColor(EffectiveIconColors.unhover, 0f);
+        }
 
         containerBlock.AddGestureHandler<Gesture.OnClick>(OnButtonClick);
         containerBlock.AddGestureHandler<Gesture.OnHover>(OnButtonHover);
@@ -127,9 +145,13 @@ public class CoreButton : MonoBehaviour
 
     void OnButtonClick(Gesture.OnClick evt){
         if(animate){
-            if(ShowBlockColor) animator.AnimateBlockColor(baseColors.clicked, colorDuration);
-            if(ShowTextColor)  animator.AnimateTextColor(textColors.clicked, colorDuration);
-            if(ShowIconColor)  animator.AnimateIconColor(EffectiveIconColors.clicked, colorDuration);
+            var blockColors = _isSelected ? selectedColors : baseColors;
+            var textCols    = _isSelected ? selectedTextColors : textColors;
+            var iconCols    = _isSelected ? EffectiveSelectedIconColors : EffectiveIconColors;
+
+            if(ShowBlockColor) animator.AnimateBlockColor(blockColors.clicked, colorDuration);
+            if(ShowTextColor)  animator.AnimateTextColor(textCols.clicked, colorDuration);
+            if(ShowIconColor)  animator.AnimateIconColor(iconCols.clicked, colorDuration);
 
             if(scaleOnClick) animator.AnimateScale(clickScale.from, clickScale.to, clickDuration);
             if(moveOnClick)  animator.AnimateMove(clickMove.from, clickMove.to, clickDuration);
@@ -141,10 +163,17 @@ public class CoreButton : MonoBehaviour
     }
 
     void OnButtonHover(Gesture.OnHover evt){
+        if(_isHovered) return;
+        _isHovered = true;
+
         if(animate){
-            if(ShowBlockColor) animator.AnimateBlockColor(baseColors.hover, colorDuration);
-            if(ShowTextColor)  animator.AnimateTextColor(textColors.hover, colorDuration);
-            if(ShowIconColor)  animator.AnimateIconColor(EffectiveIconColors.hover, colorDuration);
+            var blockColors = _isSelected ? selectedColors : baseColors;
+            var textCols    = _isSelected ? selectedTextColors : textColors;
+            var iconCols    = _isSelected ? EffectiveSelectedIconColors : EffectiveIconColors;
+
+            if(ShowBlockColor) animator.AnimateBlockColor(blockColors.hover, colorDuration);
+            if(ShowTextColor)  animator.AnimateTextColor(textCols.hover, colorDuration);
+            if(ShowIconColor)  animator.AnimateIconColor(iconCols.hover, colorDuration);
 
             if(scaleOnHover) animator.AnimateScale(hoverScale.from, hoverScale.to, hoverDuration);
             if(moveOnHover)  animator.AnimateMove(hoverMove.from, hoverMove.to, hoverDuration);
@@ -155,13 +184,37 @@ public class CoreButton : MonoBehaviour
     }
 
     void OnButtonUnhover(Gesture.OnUnhover evt){
-        if(animate){
-            animator.ResetToOriginals(colorDuration);
+        if(!_isHovered) return;
+        _isHovered = false;
 
-            if(scaleOnHover || scaleOnClick) animator.AnimateScale(Vector3.one, Vector3.one, hoverDuration, true);
-            if(moveOnHover  || moveOnClick)  animator.AnimateMove(Vector3.zero, Vector3.zero, hoverDuration, true);
+        if(animate){
+            var blockColors = _isSelected ? selectedColors : baseColors;
+            var textCols    = _isSelected ? selectedTextColors : textColors;
+            var iconCols    = _isSelected ? EffectiveSelectedIconColors : EffectiveIconColors;
+
+            if(ShowBlockColor) animator.AnimateBlockColor(blockColors.unhover, colorDuration);
+            if(ShowTextColor)  animator.AnimateTextColor(textCols.unhover, colorDuration);
+            if(ShowIconColor)  animator.AnimateIconColor(iconCols.unhover, colorDuration);
+
+            if(scaleOnHover || scaleOnClick) animator.AnimateScale(Vector2.one, Vector2.one, hoverDuration, true);
+            if(moveOnHover  || moveOnClick)  animator.AnimateMove(Vector2.zero, Vector2.zero, hoverDuration, true);
         }
 
         onUnhover?.Invoke();
+    }
+
+    public void SetSelected(bool selected){
+        if(_isSelected == selected) return;
+        _isSelected = selected;
+
+        if(!animate) return;
+
+        var blockColors = _isSelected ? selectedColors : baseColors;
+        var textCols    = _isSelected ? selectedTextColors : textColors;
+        var iconCols    = _isSelected ? EffectiveSelectedIconColors : EffectiveIconColors;
+
+        if(ShowBlockColor) animator.AnimateBlockColor(blockColors.unhover, colorDuration);
+        if(ShowTextColor)  animator.AnimateTextColor(textCols.unhover, colorDuration);
+        if(ShowIconColor)  animator.AnimateIconColor(iconCols.unhover, colorDuration);
     }
 }

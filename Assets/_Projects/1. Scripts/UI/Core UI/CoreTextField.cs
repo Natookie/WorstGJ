@@ -11,6 +11,8 @@ public class CoreTextField : MonoBehaviour
     [SerializeField] private UIBlock2D backgroundBlock;
     [SerializeField] private TextBlock inputText;
     [SerializeField] private TextBlock placeholderText;
+    [Space(10)]
+    [SerializeField] private string displayName;
     public string GroupId;
 
     [Header("VISUALS")]
@@ -45,14 +47,20 @@ public class CoreTextField : MonoBehaviour
     public bool IsValid(out string[] failedRules){
         var failed = new List<string>();
 
-        if(required && string.IsNullOrEmpty(_text)) failed.Add("Required");
-        if(_text.Length < minLength) failed.Add($"MinLength({minLength})");
-        if(_customValidator != null && !_customValidator(_text)) failed.Add("CustomRule");
+        bool isEmpty = string.IsNullOrEmpty(_text);
+        if(required && isEmpty){
+            failed.Add("Required");
+            failedRules = failed.ToArray();
+            return false;
+        }
+
+        if(_text.Length < minLength) failed.Add($"Must be at least {minLength} characters");
+        if(_customValidator != null && !_customValidator(_text)) failed.Add("Invalid input");
 
         if(_validators != null){
             foreach(var v in _validators){
                 if(v != null && !v.Validate(_text))
-                    failed.Add(v.GetRuleName());
+                    failed.Add(v.GetRequirement());
             }
         }
 
@@ -116,9 +124,8 @@ public class CoreTextField : MonoBehaviour
         Invoke(nameof(RestoreColor), 0.4f);
     }
 
-    void RestoreColor(){
-        RefreshVisuals();
-    }
+    void RestoreColor() => RefreshVisuals();
+    public string DisplayName => string.IsNullOrEmpty(displayName) ? gameObject.name : displayName;
 
     void Update(){
         if(!_focused) return;

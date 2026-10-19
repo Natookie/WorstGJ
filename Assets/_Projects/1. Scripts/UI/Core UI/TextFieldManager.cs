@@ -82,17 +82,12 @@ public static class TextFieldManager
         }
     }
 
-    public static bool TrySubmitGroup(string groupId){
-        if(!ValidateGroup(groupId, out var failures)){
-            foreach(var fail in failures){
-                Debug.LogWarning($"[TextField] '{fail.Field.name}' failed: {string.Join(", ", fail.FailedRules)}");
-            }
-            ClearAll(groupId);
-            return false;
-        }
+    public static bool TrySubmitGroup(string groupId, out List<FieldFailure> failures){
+        if(!ValidateGroup(groupId, out failures)) return false;
         SubmitGroup(groupId);
         return true;
     }
+    public static bool TrySubmitGroup(string groupId) => TrySubmitGroup(groupId, out _);
 
     public static bool IsHitAField(UIBlock hitBlock, out CoreTextField field){
         field = null;

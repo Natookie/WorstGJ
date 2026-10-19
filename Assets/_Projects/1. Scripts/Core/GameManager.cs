@@ -12,6 +12,13 @@ public class GameManager : MonoBehaviour
     [ReadOnly] public GameState State;
     public bool skipIntro = true;
 
+    [Header("CLOCK")]
+    [Tooltip("Real-world minutes it takes for one in-game day (24 hours).")]
+    [SerializeField] private float realMinutesPerInGameDay = 15f;
+
+    private bool clockStarted;
+    private float clockElapsedSeconds;
+
     void Awake(){
         if(Instance == null){ 
             Instance = this;
@@ -25,6 +32,9 @@ public class GameManager : MonoBehaviour
     }
 
     void Update(){
+        if(clockStarted && State == GameState.Playing)
+            clockElapsedSeconds += Time.unscaledDeltaTime;
+
         if(Keyboard.current.escapeKey.wasPressedThisFrame){
             if(State == GameState.Playing) PauseGame();
             else if(State == GameState.Paused) ResumeGame();
@@ -41,6 +51,11 @@ public class GameManager : MonoBehaviour
         var prev = State;
         State = newState;
         OnStateChanged?.Invoke(newState);
+
+        if(newState == GameState.Playing && !clockStarted){
+            clockStarted = true;
+            clockElapsedSeconds = 0f;
+        }
     }
 
     public void StartGame()  => ChangeState(GameState.Playing);
@@ -59,5 +74,21 @@ public class GameManager : MonoBehaviour
     public void StartApplication(){
         ChangeState(GameState.Playing);
         DialogueLibrary.Instance.StartCoroutine(DialogueLibrary.Instance.PlayIntroSequence());
+    }
+
+    public string GetClockString() => FormatClock(GetClockHours());
+    public float GetClockHours(){
+        if(realMinutesPerInGameDay <= 0f) return 0f;
+
+        float realSecondsPerGameDay = realMinutesPerInGameDay * 60f;
+        float realSecondsPerGameHour = realSecondsPerGameDay / 24f;
+        return clockElapsedSeconds / realSecondsPerGameHour;
+    }
+
+    static string FormatClock(float hours){
+        int totalMinutes = Mathf.FloorToInt(hours * 60f);
+        int h = (totalMinutes / 60) % 24;
+        int m = totalMinutes % 60;
+        return $"{h:00}:{m:00}";
     }
 }
