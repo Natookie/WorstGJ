@@ -151,12 +151,12 @@ public class PlayerMovement : MonoBehaviour
     public Vector2 Velocity => rb.linearVelocity;
     public Vector2 Facing   => _facing;
     
-    public void EnterComputerMode(){
+    public void EnterScreenMode(string deviceName){
         isEnabled = false;
-        cameraController.EnterComputerMode();
+        cameraController.EnterScreenMode(deviceName);
     }
-    public void ExitComputerMode(){
+    public void ExitScreenMode(){
         isEnabled = true;
-        cameraController.ExitComputerMode();
+        cameraController.ExitScreenMode();
     }
 }
