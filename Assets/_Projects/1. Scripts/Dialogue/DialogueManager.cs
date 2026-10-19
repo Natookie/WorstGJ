@@ -2,9 +2,13 @@ using UnityEngine;
 using System.Collections;
 using System;
 using UnityEngine.InputSystem;
+using UnityEngine.Events;
 
 public class DialogueManager : MonoBehaviour
 {
+    public UnityEvent DialogueStarted;
+    public UnityEvent DialogueEnded;
+
     public static DialogueManager Instance { get; private set; }
 
     [Header("REFERENCES")]
@@ -27,6 +31,17 @@ public class DialogueManager : MonoBehaviour
             if (dialogueUI.IsTyping()) dialogueUI.SkipTyping();
             else advanceRequested = true;
         }
+    }
+
+    public void StartDialogue()
+    {
+        DialogueStarted?.Invoke();
+    }
+
+    public void EndDialogue()
+    {
+        HideDialogue();
+        DialogueEnded?.Invoke();
     }
 
     public void PlayDialogue(SpeakerType speaker, string text){
