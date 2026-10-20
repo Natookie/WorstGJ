@@ -4805,7 +4805,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Computer
   deviceName: Computer
   player: {fileID: 2032196912}
-  promptOveride: 
+  promptOveride: coco
 --- !u!58 &51881024
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -90760,7 +90760,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Computer
   deviceName: Printer
   player: {fileID: 2032196912}
-  promptOveride: 
+  promptOveride: popo
 --- !u!212 &1368265602
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -158021,10 +158021,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 312796006}
     m_Modifications:
+    - target: {fileID: 1068176897856092736, guid: e1a52670ed8869a4b9051722a0c89997, type: 3}
+      propertyPath: promptUI
+      value: 
+      objectReference: {fileID: 60143910}
     - target: {fileID: 1107719258493184322, guid: e1a52670ed8869a4b9051722a0c89997, type: 3}
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 3456555031620849100, guid: e1a52670ed8869a4b9051722a0c89997, type: 3}
+      propertyPath: promptUI
+      value: 
+      objectReference: {fileID: 60143910}
+    - target: {fileID: 3486170619222867632, guid: e1a52670ed8869a4b9051722a0c89997, type: 3}
+      propertyPath: promptUI
+      value: 
+      objectReference: {fileID: 60143910}
     - target: {fileID: 3607999037228006695, guid: e1a52670ed8869a4b9051722a0c89997, type: 3}
       propertyPath: promptUI
       value: 
@@ -158045,6 +158057,10 @@ PrefabInstance:
       propertyPath: cameraController
       value: 
       objectReference: {fileID: 519420034}
+    - target: {fileID: 6556552163710265090, guid: e1a52670ed8869a4b9051722a0c89997, type: 3}
+      propertyPath: promptUI
+      value: 
+      objectReference: {fileID: 60143910}
     - target: {fileID: 7087013343018533063, guid: e1a52670ed8869a4b9051722a0c89997, type: 3}
       propertyPath: m_LocalPosition.x
       value: 10.47

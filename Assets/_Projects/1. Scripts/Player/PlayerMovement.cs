@@ -9,6 +9,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private PlayerVisual playerVisual;
     [SerializeField] private BoxConfinement2D confinement;
+    [SerializeField] private Transform interactFacing;
     [SerializeField] private CameraController cameraController;
     [SerializeField] private Camera worldCamera;
     [SerializeField] private Camera uiCamera;
@@ -38,6 +39,14 @@ public class PlayerMovement : MonoBehaviour
         rb.interpolation = RigidbodyInterpolation2D.Interpolate;
     }
 
+    void Start()
+    {
+        Debug.Assert(rb, "rb is missing");
+        Debug.Assert(playerVisual, "playerVisual is missing");
+        Debug.Assert(confinement, "confinement is missing");
+        Debug.Assert(interactFacing, "interactFacing is missing");
+    }
+
     void Update(){
         if(IsBusy){
             _forward = false;
@@ -57,6 +66,12 @@ public class PlayerMovement : MonoBehaviour
         //     transform.rotation,
         //     Quaternion.Euler(0f, 0f, Mathf.Atan2(_facing.y, _facing.x) * Mathf.Rad2Deg - 90f),
         //     turnSpeed * Time.deltaTime);
+        
+        // Update interactFacing direction
+        interactFacing.rotation = Quaternion.RotateTowards(
+            interactFacing.rotation,
+            Quaternion.Euler(0f, 0f, Mathf.Atan2(_facing.y, _facing.x) * Mathf.Rad2Deg - 90f),
+            turnSpeed * Time.deltaTime);
 
         playerVisual.UpdateAnimation(_facing, rb.linearVelocity.sqrMagnitude);
     }

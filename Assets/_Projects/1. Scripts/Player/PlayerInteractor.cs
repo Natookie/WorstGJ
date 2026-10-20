@@ -6,6 +6,10 @@ public class PlayerInteractor : MonoBehaviour
 {
     public enum ForwardAxis { Right, Up }
 
+    [Header("REFERENCES")]
+    [SerializeField] private Transform interactFacing;
+
+    [Header("SETTINGS")]
     [SerializeField] private ForwardAxis forwardAxis = ForwardAxis.Right;
     [SerializeField] private float range = 1.5f;
     [SerializeField] private float scanInterval = 0.1f;
@@ -20,7 +24,8 @@ public class PlayerInteractor : MonoBehaviour
     private float _timer;
 
     private Vector2 Facing =>
-        forwardAxis == ForwardAxis.Right ? (Vector2)transform.right : (Vector2)transform.up;
+        forwardAxis == ForwardAxis.Right ? (Vector2)interactFacing.transform.right
+        : (Vector2)interactFacing.transform.up;
 
 
     void Awake()
@@ -31,6 +36,11 @@ public class PlayerInteractor : MonoBehaviour
             layerMask = interactableMask,
             useTriggers = true
         };
+    }
+
+    void Start()
+    {
+        Debug.Assert(interactFacing, "interactFacing is missing");
     }
 
     void Update()
@@ -54,7 +64,7 @@ public class PlayerInteractor : MonoBehaviour
 
     void UpdateTarget(Vector2 facing)
     {
-        Vector2 origin = (Vector2)transform.position + originOffset;
+        Vector2 origin = (Vector2)interactFacing.transform.position + originOffset;
         int count = Physics2D.Raycast(origin, facing, _filter, _buffer, range);
 
         IInteractable found = null;
@@ -63,7 +73,7 @@ public class PlayerInteractor : MonoBehaviour
         for (int i = 0; i < count; i++)
         {
             var hit = _buffer[i].collider;
-            if (hit.transform.IsChildOf(transform)) continue; // ignore the player's own colliders
+            if (hit.transform.IsChildOf(interactFacing.transform)) continue; // ignore the player's own colliders
             if (!hit.TryGetComponent(out IInteractable interactable)) continue;
             if (!interactable.CanInteract) continue;
 
@@ -86,8 +96,10 @@ public class PlayerInteractor : MonoBehaviour
 
     void OnDrawGizmosSelected()
     {
+        if (!interactFacing) return;
+        
         Gizmos.color = Color.yellow;
-        Vector2 origin = (Vector2)transform.position + originOffset;
+        Vector2 origin = (Vector2)interactFacing.transform.position + originOffset;
         Gizmos.DrawLine(origin, origin + Facing * range);
     }
 }

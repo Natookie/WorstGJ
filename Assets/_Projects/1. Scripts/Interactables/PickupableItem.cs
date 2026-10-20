@@ -3,6 +3,7 @@ using UnityEngine;
 public class PickupableItem : MonoBehaviour, IInteractable
 {
     [Header("REFERENCES")]
+    [SerializeField] private Rigidbody2D rb;
     [SerializeField] private SpriteRenderer spriteRenderer;
 
     [Header("ITEM SETTINGS")]
@@ -16,6 +17,7 @@ public class PickupableItem : MonoBehaviour, IInteractable
     
     private void Start()
     {
+        Debug.Assert(rb, "rb is empty");
         Debug.Assert(spriteRenderer, "spriteRenderer is empty");
         Debug.Assert(itemData, "itemData is empty");
 
@@ -35,6 +37,12 @@ public class PickupableItem : MonoBehaviour, IInteractable
         itemData = newItemData;
 
         spriteRenderer.sprite = itemData.itemSprite;
+    }
+
+    public void SetVelocity(Vector2 direction, float speed)
+    {
+        Vector2 finalDirection = direction.sqrMagnitude > 0.0001f ? direction.normalized : Vector2.zero;
+        rb.linearVelocity = finalDirection * speed;
     }
 
     private void OnTypeCommandEmitted(string command)

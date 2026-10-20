@@ -22,17 +22,18 @@ public class PlayerVisual : MonoBehaviour
 
     public void UpdateAnimation(Vector2 direction, float speed)
     {
-        bool moving = speed > moveThreshold && direction.sqrMagnitude > 0.0001f;
+        bool hasDirection = direction.sqrMagnitude > 0.0001f;
+        bool moving = speed > moveThreshold && hasDirection;
 
-        if (moving)
+        // Update facing whenever a direction is given, even while idle
+        if (hasDirection)
             lastDirection = GetDirectionIndex(direction);
 
         string stateName = (moving ? walkAnimPrefix : idleAnimPrefix) + Directions[lastDirection];
         int hash = Animator.StringToHash(stateName);
 
-        if (hash == currentHash) return;   // already playing, don't restart
+        if (hash == currentHash) return;
 
-        // Keep walk cycle position when only the direction changes
         bool walkToWalk = moving && IsWalkState(currentHash);
         float startTime = walkToWalk ? animator.GetCurrentAnimatorStateInfo(0).normalizedTime % 1f : 0f;
 
