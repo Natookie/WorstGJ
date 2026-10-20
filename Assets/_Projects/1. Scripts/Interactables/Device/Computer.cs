@@ -3,6 +3,7 @@ using UnityEngine;
 public class Computer : BaseDevice
 {
     [SerializeField] private PlayerMovement player;
+    [SerializeField] private string promptOveride;
 
     private bool inUse;
     private bool canInteract = true;
@@ -33,6 +34,5 @@ public class Computer : BaseDevice
     }
 
     protected override bool GetCanInteract() => canInteract && !inUse;
-
-    protected override string GetPromptMessage() => inUse ? string.Empty : "Use Computer";
+    protected override string GetPromptMessage() => inUse ? string.Empty : promptOveride;
 }

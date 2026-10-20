@@ -107,6 +107,7 @@ public class CoreButton : MonoBehaviour
     private bool _isHovered;
 
     public bool IsSelected => _isSelected;
+    public bool IsHovered  => _isHovered;
 
     [Button("Initialize", EButtonEnableMode.Editor)]
     public void Init(){
@@ -163,44 +164,46 @@ public class CoreButton : MonoBehaviour
     }
 
     void OnButtonHover(Gesture.OnHover evt){
-        if(_isHovered) return;
         _isHovered = true;
-
-        if(animate){
-            var blockColors = _isSelected ? selectedColors : baseColors;
-            var textCols    = _isSelected ? selectedTextColors : textColors;
-            var iconCols    = _isSelected ? EffectiveSelectedIconColors : EffectiveIconColors;
-
-            if(ShowBlockColor) animator.AnimateBlockColor(blockColors.hover, colorDuration);
-            if(ShowTextColor)  animator.AnimateTextColor(textCols.hover, colorDuration);
-            if(ShowIconColor)  animator.AnimateIconColor(iconCols.hover, colorDuration);
-
-            if(scaleOnHover) animator.AnimateScale(hoverScale.from, hoverScale.to, hoverDuration);
-            if(moveOnHover)  animator.AnimateMove(hoverMove.from, hoverMove.to, hoverDuration);
-            if(shakeOnHover) animator.AnimateShake(hoverShake.amplitude, hoverShake.frequency, hoverShake.duration);
-        }
-
+        ApplyHoverVisual();
         onHover?.Invoke();
     }
 
     void OnButtonUnhover(Gesture.OnUnhover evt){
-        if(!_isHovered) return;
         _isHovered = false;
-
-        if(animate){
-            var blockColors = _isSelected ? selectedColors : baseColors;
-            var textCols    = _isSelected ? selectedTextColors : textColors;
-            var iconCols    = _isSelected ? EffectiveSelectedIconColors : EffectiveIconColors;
-
-            if(ShowBlockColor) animator.AnimateBlockColor(blockColors.unhover, colorDuration);
-            if(ShowTextColor)  animator.AnimateTextColor(textCols.unhover, colorDuration);
-            if(ShowIconColor)  animator.AnimateIconColor(iconCols.unhover, colorDuration);
-
-            if(scaleOnHover || scaleOnClick) animator.AnimateScale(Vector2.one, Vector2.one, hoverDuration, true);
-            if(moveOnHover  || moveOnClick)  animator.AnimateMove(Vector2.zero, Vector2.zero, hoverDuration, true);
-        }
-
+        ApplyUnhoverVisual();
         onUnhover?.Invoke();
+    }
+
+    void ApplyHoverVisual(){
+        if(!animate) return;
+
+        var blockColors = _isSelected ? selectedColors : baseColors;
+        var textCols    = _isSelected ? selectedTextColors : textColors;
+        var iconCols    = _isSelected ? EffectiveSelectedIconColors : EffectiveIconColors;
+
+        if(ShowBlockColor) animator.AnimateBlockColor(blockColors.hover, colorDuration);
+        if(ShowTextColor)  animator.AnimateTextColor(textCols.hover, colorDuration);
+        if(ShowIconColor)  animator.AnimateIconColor(iconCols.hover, colorDuration);
+
+        if(scaleOnHover) animator.AnimateScale(hoverScale.from, hoverScale.to, hoverDuration);
+        if(moveOnHover)  animator.AnimateMove(hoverMove.from, hoverMove.to, hoverDuration);
+        if(shakeOnHover) animator.AnimateShake(hoverShake.amplitude, hoverShake.frequency, hoverShake.duration);
+    }
+
+    void ApplyUnhoverVisual(){
+        if(!animate) return;
+
+        var blockColors = _isSelected ? selectedColors : baseColors;
+        var textCols    = _isSelected ? selectedTextColors : textColors;
+        var iconCols    = _isSelected ? EffectiveSelectedIconColors : EffectiveIconColors;
+
+        if(ShowBlockColor) animator.AnimateBlockColor(blockColors.unhover, colorDuration);
+        if(ShowTextColor)  animator.AnimateTextColor(textCols.unhover, colorDuration);
+        if(ShowIconColor)  animator.AnimateIconColor(iconCols.unhover, colorDuration);
+
+        if(scaleOnHover || scaleOnClick) animator.AnimateScale(Vector2.one, Vector2.one, hoverDuration, true);
+        if(moveOnHover  || moveOnClick)  animator.AnimateMove(Vector2.zero, Vector2.zero, hoverDuration, true);
     }
 
     public void SetSelected(bool selected){
@@ -217,4 +220,10 @@ public class CoreButton : MonoBehaviour
         if(ShowTextColor)  animator.AnimateTextColor(textCols.unhover, colorDuration);
         if(ShowIconColor)  animator.AnimateIconColor(iconCols.unhover, colorDuration);
     }
+
+    public void SetText(string text){
+        if(baseTextBlock != null) baseTextBlock.Text = text;
+    }
+
+    public string GetText() => baseTextBlock != null ? baseTextBlock.Text : string.Empty;
 }

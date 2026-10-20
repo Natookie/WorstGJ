@@ -1,0 +1,598 @@
+fileFormatVersion: 2
+guid: 95c09bcdcdd8f2045ade81c310ade553
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -7078051512695664338
+    second: characters_Granny_0
+  - first:
+      213: 510340518807038118
+    second: characters_Granny_1
+  - first:
+      213: -3439556015289715391
+    second: characters_Granny_2
+  - first:
+      213: -7118688735345593371
+    second: characters_Granny_3
+  - first:
+      213: 4835660603483633822
+    second: characters_Granny_4
+  - first:
+      213: 7842639611363544023
+    second: characters_Granny_5
+  - first:
+      213: -3182808257807719053
+    second: characters_Granny_6
+  - first:
+      213: 7601172592012603470
+    second: characters_Granny_7
+  - first:
+      213: 3258427112962958534
+    second: characters_Granny_8
+  - first:
+      213: 5192065528436934522
+    second: characters_Granny_9
+  - first:
+      213: 4235148392547828394
+    second: characters_Granny_10
+  - first:
+      213: -5668410910481298567
+    second: characters_Granny_11
+  - first:
+      213: -7787437948713743002
+    second: characters_Granny_12
+  - first:
+      213: -2546288125347833819
+    second: characters_Granny_13
+  - first:
+      213: 7625749322700825229
+    second: characters_Granny_14
+  - first:
+      213: -8090441270653315683
+    second: characters_Granny_15
+  - first:
+      213: 4249517610413040840
+    second: characters_Granny_16
+  - first:
+      213: -5749191285636948900
+    second: characters_Granny_17
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 16
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: characters_Granny_0
+      rect:
+        serializedVersion: 2
+        x: 21
+        y: 14
+        width: 22
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e21dbdb76a5b5cd90800000000000000
+      internalID: -7078051512695664338
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: characters_Granny_1
+      rect:
+        serializedVersion: 2
+        x: 85
+        y: 14
+        width: 22
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6a86bf97ff7151700800000000000000
+      internalID: 510340518807038118
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: characters_Granny_2
+      rect:
+        serializedVersion: 2
+        x: 149
+        y: 14
+        width: 23
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1453993170e3440d0800000000000000
+      internalID: -3439556015289715391
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: characters_Granny_3
+      rect:
+        serializedVersion: 2
+        x: 212
+        y: 14
+        width: 23
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5e3b627cf46553d90800000000000000
+      internalID: -7118688735345593371
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: characters_Granny_4
+      rect:
+        serializedVersion: 2
+        x: 277
+        y: 14
+        width: 22
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e983efcc2b7bb1340800000000000000
+      internalID: 4835660603483633822
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: characters_Granny_5
+      rect:
+        serializedVersion: 2
+        x: 341
+        y: 14
+        width: 23
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7db4bb8ac27a6dc60800000000000000
+      internalID: 7842639611363544023
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: characters_Granny_6
+      rect:
+        serializedVersion: 2
+        x: 404
+        y: 14
+        width: 23
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 375e035b0c464d3d0800000000000000
+      internalID: -3182808257807719053
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: characters_Granny_7
+      rect:
+        serializedVersion: 2
+        x: 470
+        y: 14
+        width: 24
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e40b85f133acc7960800000000000000
+      internalID: 7601172592012603470
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: characters_Granny_8
+      rect:
+        serializedVersion: 2
+        x: 532
+        y: 14
+        width: 26
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6c4a8a20232483d20800000000000000
+      internalID: 3258427112962958534
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: characters_Granny_9
+      rect:
+        serializedVersion: 2
+        x: 596
+        y: 14
+        width: 26
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a77c801e61ced0840800000000000000
+      internalID: 5192065528436934522
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: characters_Granny_10
+      rect:
+        serializedVersion: 2
+        x: 661
+        y: 14
+        width: 22
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: aa241e4360546ca30800000000000000
+      internalID: 4235148392547828394
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: characters_Granny_11
+      rect:
+        serializedVersion: 2
+        x: 724
+        y: 14
+        width: 25
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 97b40d73f42c551b0800000000000000
+      internalID: -5668410910481298567
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: characters_Granny_12
+      rect:
+        serializedVersion: 2
+        x: 788
+        y: 14
+        width: 25
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 66d458cf1767de390800000000000000
+      internalID: -7787437948713743002
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: characters_Granny_13
+      rect:
+        serializedVersion: 2
+        x: 851
+        y: 15
+        width: 22
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 528d8d8d074c9acd0800000000000000
+      internalID: -2546288125347833819
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: characters_Granny_14
+      rect:
+        serializedVersion: 2
+        x: 916
+        y: 14
+        width: 26
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d8222c52b9a14d960800000000000000
+      internalID: 7625749322700825229
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: characters_Granny_15
+      rect:
+        serializedVersion: 2
+        x: 979
+        y: 15
+        width: 27
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d959c82878af8bf80800000000000000
+      internalID: -8090441270653315683
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: characters_Granny_16
+      rect:
+        serializedVersion: 2
+        x: 1041
+        y: 13
+        width: 30
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8c4af6370c159fa30800000000000000
+      internalID: 4249517610413040840
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: characters_Granny_17
+      rect:
+        serializedVersion: 2
+        x: 1105
+        y: 13
+        width: 30
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c5c96d97cf4c630b0800000000000000
+      internalID: -5749191285636948900
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      characters_Granny_0: -7078051512695664338
+      characters_Granny_1: 510340518807038118
+      characters_Granny_10: 4235148392547828394
+      characters_Granny_11: -5668410910481298567
+      characters_Granny_12: -7787437948713743002
+      characters_Granny_13: -2546288125347833819
+      characters_Granny_14: 7625749322700825229
+      characters_Granny_15: -8090441270653315683
+      characters_Granny_16: 4249517610413040840
+      characters_Granny_17: -5749191285636948900
+      characters_Granny_2: -3439556015289715391
+      characters_Granny_3: -7118688735345593371
+      characters_Granny_4: 4835660603483633822
+      characters_Granny_5: 7842639611363544023
+      characters_Granny_6: -3182808257807719053
+      characters_Granny_7: 7601172592012603470
+      characters_Granny_8: 3258427112962958534
+      characters_Granny_9: 5192065528436934522
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

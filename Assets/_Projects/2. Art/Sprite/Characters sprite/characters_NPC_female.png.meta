@@ -1,0 +1,598 @@
+fileFormatVersion: 2
+guid: 22ce3a72a620f4f4288bf7b51930322c
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 1913593087678968412
+    second: characters_NPC_female_0
+  - first:
+      213: -1437299688698897283
+    second: characters_NPC_female_1
+  - first:
+      213: 1301898813400654564
+    second: characters_NPC_female_2
+  - first:
+      213: 4936242382239430512
+    second: characters_NPC_female_3
+  - first:
+      213: -17839501498060359
+    second: characters_NPC_female_4
+  - first:
+      213: -6160768581284022851
+    second: characters_NPC_female_5
+  - first:
+      213: 8284871749314929845
+    second: characters_NPC_female_6
+  - first:
+      213: -3893318336431816363
+    second: characters_NPC_female_7
+  - first:
+      213: 8617302746595548385
+    second: characters_NPC_female_8
+  - first:
+      213: -4867201636142410475
+    second: characters_NPC_female_9
+  - first:
+      213: 7302780706787480882
+    second: characters_NPC_female_10
+  - first:
+      213: 3687274239197025176
+    second: characters_NPC_female_11
+  - first:
+      213: -3857355642558604321
+    second: characters_NPC_female_12
+  - first:
+      213: -1352412404578593223
+    second: characters_NPC_female_13
+  - first:
+      213: 6603379775714516572
+    second: characters_NPC_female_14
+  - first:
+      213: -1248720944790149961
+    second: characters_NPC_female_15
+  - first:
+      213: 292889059129979150
+    second: characters_NPC_female_16
+  - first:
+      213: 2033449425221219815
+    second: characters_NPC_female_17
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 16
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: characters_NPC_female_0
+      rect:
+        serializedVersion: 2
+        x: 20
+        y: 14
+        width: 24
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c527fbb46c27e8a10800000000000000
+      internalID: 1913593087678968412
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: characters_NPC_female_1
+      rect:
+        serializedVersion: 2
+        x: 84
+        y: 14
+        width: 24
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d7c925b5c8fad0ce0800000000000000
+      internalID: -1437299688698897283
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: characters_NPC_female_2
+      rect:
+        serializedVersion: 2
+        x: 150
+        y: 14
+        width: 19
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4e2af32b216411210800000000000000
+      internalID: 1301898813400654564
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: characters_NPC_female_3
+      rect:
+        serializedVersion: 2
+        x: 215
+        y: 14
+        width: 19
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 077fb961b4e018440800000000000000
+      internalID: 4936242382239430512
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: characters_NPC_female_4
+      rect:
+        serializedVersion: 2
+        x: 276
+        y: 14
+        width: 24
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9b1fc32611f90cff0800000000000000
+      internalID: -17839501498060359
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: characters_NPC_female_5
+      rect:
+        serializedVersion: 2
+        x: 340
+        y: 14
+        width: 24
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: db5bd21dd9d808aa0800000000000000
+      internalID: -6160768581284022851
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: characters_NPC_female_6
+      rect:
+        serializedVersion: 2
+        x: 404
+        y: 14
+        width: 24
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5b4e59bf5f6c9f270800000000000000
+      internalID: 8284871749314929845
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: characters_NPC_female_7
+      rect:
+        serializedVersion: 2
+        x: 471
+        y: 14
+        width: 22
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5518777c99728f9c0800000000000000
+      internalID: -3893318336431816363
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: characters_NPC_female_8
+      rect:
+        serializedVersion: 2
+        x: 532
+        y: 14
+        width: 25
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1ec53dc013fc69770800000000000000
+      internalID: 8617302746595548385
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: characters_NPC_female_9
+      rect:
+        serializedVersion: 2
+        x: 597
+        y: 14
+        width: 24
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 515188346e9347cb0800000000000000
+      internalID: -4867201636142410475
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: characters_NPC_female_10
+      rect:
+        serializedVersion: 2
+        x: 660
+        y: 14
+        width: 23
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 235d4ac6c50b85560800000000000000
+      internalID: 7302780706787480882
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: characters_NPC_female_11
+      rect:
+        serializedVersion: 2
+        x: 724
+        y: 14
+        width: 26
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 89399c07264db2330800000000000000
+      internalID: 3687274239197025176
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: characters_NPC_female_12
+      rect:
+        serializedVersion: 2
+        x: 788
+        y: 14
+        width: 27
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fdb12f0fa7be77ac0800000000000000
+      internalID: -3857355642558604321
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: characters_NPC_female_13
+      rect:
+        serializedVersion: 2
+        x: 852
+        y: 14
+        width: 21
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 936d24b55144b3de0800000000000000
+      internalID: -1352412404578593223
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: characters_NPC_female_14
+      rect:
+        serializedVersion: 2
+        x: 916
+        y: 13
+        width: 26
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c5e56787beae3ab50800000000000000
+      internalID: 6603379775714516572
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: characters_NPC_female_15
+      rect:
+        serializedVersion: 2
+        x: 980
+        y: 13
+        width: 26
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7b4613eaae6abaee0800000000000000
+      internalID: -1248720944790149961
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: characters_NPC_female_16
+      rect:
+        serializedVersion: 2
+        x: 1044
+        y: 13
+        width: 24
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e017a082c0d801400800000000000000
+      internalID: 292889059129979150
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: characters_NPC_female_17
+      rect:
+        serializedVersion: 2
+        x: 1108
+        y: 13
+        width: 24
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7e578038a73483c10800000000000000
+      internalID: 2033449425221219815
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      characters_NPC_female_0: 1913593087678968412
+      characters_NPC_female_1: -1437299688698897283
+      characters_NPC_female_10: 7302780706787480882
+      characters_NPC_female_11: 3687274239197025176
+      characters_NPC_female_12: -3857355642558604321
+      characters_NPC_female_13: -1352412404578593223
+      characters_NPC_female_14: 6603379775714516572
+      characters_NPC_female_15: -1248720944790149961
+      characters_NPC_female_16: 292889059129979150
+      characters_NPC_female_17: 2033449425221219815
+      characters_NPC_female_2: 1301898813400654564
+      characters_NPC_female_3: 4936242382239430512
+      characters_NPC_female_4: -17839501498060359
+      characters_NPC_female_5: -6160768581284022851
+      characters_NPC_female_6: 8284871749314929845
+      characters_NPC_female_7: -3893318336431816363
+      characters_NPC_female_8: 8617302746595548385
+      characters_NPC_female_9: -4867201636142410475
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -13,13 +13,15 @@ public class PrintableFile
 
 public class PrinterPanel : MonoBehaviour
 {
+    [Header("REFERENCES")]
+    [SerializeField] private Captcha captcha;
+
     [Header("FILES")]
     [SerializeField] private List<PrintableFile> files = new();
-
-    [Header("STATE")]
     [SerializeField] private UIBlock2D paperPreviewRoot;
 
     private PrintableFile activeFile;
+    private PrintableFile selectedFile;
 
     void Awake(){
         foreach(var file in files){
@@ -70,6 +72,10 @@ public class PrinterPanel : MonoBehaviour
         activeFile = null;
         if(paperPreviewRoot != null) paperPreviewRoot.gameObject.SetActive(false);
     }
-
+    public void PrintPaper(){
+        captcha.ToggleRobotPanel();
+        selectedFile = activeFile;
+        Debug.Log(selectedFile.displayName);
+    }
     public PrintableFile ActiveFile => activeFile;
 }

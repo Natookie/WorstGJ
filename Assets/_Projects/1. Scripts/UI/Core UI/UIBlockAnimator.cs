@@ -27,8 +27,6 @@ public class UIBlockAnimator : MonoBehaviour
     public Vector2 OriginalSize     => originalSize;
     public Vector2 OriginalPosition => originalPosition;
 
-    void Start() => CaptureOriginals();
-
     public void Assign(UIBlock2D block, TextBlock text, UIBlock2D icon = null){
         baseBlock = block;
         baseTextBlock = text;
@@ -50,8 +48,8 @@ public class UIBlockAnimator : MonoBehaviour
 
     public void AnimateBlockColor(Color32 target, float duration){
         if(baseBlock == null) return;
-        if(baseBlock.Color.Equals(target)) return;
         blockColorHandle.Cancel();
+        if(baseBlock.Color.Equals(target)) return;
         blockColorHandle = new BlockColorAnimation{
             Block = baseBlock, From = baseBlock.Color, To = target
         }.Run(duration);
@@ -59,8 +57,8 @@ public class UIBlockAnimator : MonoBehaviour
 
     public void AnimateTextColor(Color32 target, float duration){
         if(baseTextBlock == null) return;
-        if(baseTextBlock.Color.Equals(target)) return;
         textColorHandle.Cancel();
+        if(baseTextBlock.Color.Equals(target)) return;
         textColorHandle = new TextColorAnimation{
             Text = baseTextBlock, From = baseTextBlock.Color, To = target
         }.Run(duration);
@@ -68,8 +66,8 @@ public class UIBlockAnimator : MonoBehaviour
 
     public void AnimateIconColor(Color32 target, float duration){
         if(baseIconBlock == null) return;
-        if(baseIconBlock.Color.Equals(target)) return;
         iconColorHandle.Cancel();
+        if(baseIconBlock.Color.Equals(target)) return;
         iconColorHandle = new BlockColorAnimation{
             Block = baseIconBlock, From = baseIconBlock.Color, To = target
         }.Run(duration);
