@@ -521,7 +521,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 1}
-  m_LocalScale: {x: 0.009268824, y: 0.009268824, z: 0.009268824}
+  m_LocalScale: {x: 0.009259259, y: 0.009259259, z: 0.009259259}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1547910969}
@@ -548,7 +548,7 @@ MonoBehaviour:
         Raw: 1920
         Type: 0
       Y:
-        Raw: 1078.8855
+        Raw: 1080
         Type: 0
       Z:
         Raw: 0
@@ -2776,12 +2776,11 @@ PrefabInstance:
         record indicates that the laptop was previously assigned to the Administration
         Department.
 
-        
 
-        The equipment has not yet been returned to
-        the designated storage area. The responsible staff member is expected to
-        confirm the current location of the laptop and update the inventory record
-        accordingly.
+
+        The equipment has not yet been returned to the designated
+        storage area. The responsible staff member is expected to confirm the current
+        location of the laptop and update the inventory record accordingly.
 
 '
       objectReference: {fileID: 0}
@@ -7614,26 +7613,26 @@ PrefabInstance:
         several items remain pending due to additional revisions requested by the
         client.
 
-        
 
-        The project coordinator reported that the current
-        project remains within the expected timeline. However, the team was reminded
-        that all outstanding documentation should be completed before the next client
+
+        The project coordinator reported that the current project
+        remains within the expected timeline. However, the team was reminded that
+        all outstanding documentation should be completed before the next client
         review.
 
-        
 
-        The Finance Department also provided an update
-        regarding the remaining project budget. No major budget issues were reported,
-        although several recent equipment purchases will need to be included in the
-        next expense report.
 
-        
+        The Finance Department also provided an update regarding
+        the remaining project budget. No major budget issues were reported, although
+        several recent equipment purchases will need to be included in the next expense
+        report.
 
-        The team then discussed the upcoming
-        deadline. All members agreed that the remaining documentation and testing
-        should be completed by the end of the week. Additional meetings will be scheduled
-        if any major issues are discovered during testing.
+
+
+        The team then discussed the upcoming deadline. All members
+        agreed that the remaining documentation and testing should be completed by
+        the end of the week. Additional meetings will be scheduled if any major issues
+        are discovered during testing.
 
 '
       objectReference: {fileID: 0}
@@ -13466,7 +13465,7 @@ PrefabInstance:
       propertyPath: m_text
       value: 'Several tasks remain in progress:
 
-        
+
 
         <b>System Testing</b>
 
@@ -13474,7 +13473,7 @@ PrefabInstance:
         IT team is currently testing the system for technical errors and unexpected
         behavior. Minor issues have been identified and are being reviewed.
 
-        
+
 
         <b>Report
         Generation</b>
@@ -13483,13 +13482,12 @@ PrefabInstance:
         improve formatting and ensure that generated documents contain the correct
         information.
 
-        
+
 
         <b>Documentation</b>
 
-        The project
-        documentation is currently being updated to reflect the latest changes made
-        during implementation.
+        The project documentation
+        is currently being updated to reflect the latest changes made during implementation.
 
 '
       objectReference: {fileID: 0}
@@ -14892,7 +14890,7 @@ Transform:
   m_GameObject: {fileID: 171028534}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -568.2, y: -451.4873, z: 0}
+  m_LocalPosition: {x: -568.2, y: -452, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -37713,10 +37711,10 @@ PrefabInstance:
         should be reported to the Finance Department before the end of the current
         reporting period.
 
-        
 
-        The department remained within its
-        allocated monthly operating budget.
+
+        The department remained within its allocated
+        monthly operating budget.
 
 '
       objectReference: {fileID: 0}
@@ -61624,7 +61622,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1256576057246416730, guid: 17aa6a2b1f6158845ad62563c7fd919a, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -1898.3999
+      value: -1936.8
       objectReference: {fileID: 0}
     - target: {fileID: 1256576057246416730, guid: 17aa6a2b1f6158845ad62563c7fd919a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -61653,18 +61651,18 @@ PrefabInstance:
         month, both occurring within the first fifteen minutes of the scheduled working
         hours.
 
-        
 
-        No unexplained absences were recorded during this
-        period. The employee has completed the required attendance records for all
-        scheduled working days.
 
-        
+        No unexplained absences were recorded during this period.
+        The employee has completed the required attendance records for all scheduled
+        working days.
 
-        This report is intended for internal
-        administrative purposes only. Any discrepancies in the attendance records
-        should be reported to the Administration Department within five working days
-        of receiving this report.
+
+
+        This report is intended for internal administrative
+        purposes only. Any discrepancies in the attendance records should be reported
+        to the Administration Department within five working days of receiving this
+        report.
 
 '
       objectReference: {fileID: 0}
@@ -69273,6 +69271,7 @@ MonoBehaviour:
   imageSubmitButton: {fileID: 2140549177}
   skipLabel: Skip
   submitLabel: Submit
+  decoyOffsetRange: 5
   textMatchSequence: {fileID: 336488128}
   textMatchField: {fileID: 779635995882886134}
   textMatchSubmitButton: {fileID: 1573144176}
@@ -71050,7 +71049,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5434878907906660857, guid: a876b1f7b95e6b14dbc93b4a213d0234, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2398.4001
+      value: -2475.2
       objectReference: {fileID: 0}
     - target: {fileID: 5434878907906660857, guid: a876b1f7b95e6b14dbc93b4a213d0234, type: 3}
       propertyPath: m_LocalPosition.z
@@ -76167,7 +76166,7 @@ Transform:
   m_GameObject: {fileID: 1126090675}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 768.2, y: 162.06943, z: 0}
+  m_LocalPosition: {x: 768.2, y: 162.58209, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -77229,11 +77228,11 @@ PrefabInstance:
         administrative records, equipment, and internal reports are managed within
         the department.
 
-        
 
-        During the current reporting period,
-        the team has completed most of the planned development tasks. The remaining
-        work primarily consists of system testing, documentation, and final revisions.
+
+        During the current reporting period, the team
+        has completed most of the planned development tasks. The remaining work primarily
+        consists of system testing, documentation, and final revisions.
 
 '
       objectReference: {fileID: 0}
@@ -81489,11 +81488,11 @@ PrefabInstance:
         schedule may be affected if additional technical problems are discovered
         during the final testing phase.
 
-        
 
-        The team is advised to
-        complete the remaining testing as soon as possible so that any potential
-        issues can be addressed before the final review.'
+
+        The team is advised to complete
+        the remaining testing as soon as possible so that any potential issues can
+        be addressed before the final review.'
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -83245,7 +83244,7 @@ Transform:
   m_GameObject: {fileID: 1268807356}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -196.59998, y: 30.030243, z: 0}
+  m_LocalPosition: {x: -196.59998, y: 30.587494, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -103085,10 +103084,10 @@ PrefabInstance:
         system testing, resolving outstanding issues, and preparing the final version
         of the project documentation.
 
-        
 
-        The project is currently
-        considered to be progressing according to schedule.
+
+        The project is currently considered
+        to be progressing according to schedule.
 
 '
       objectReference: {fileID: 0}
@@ -107490,10 +107489,7 @@ PrefabInstance:
     m_RemovedGameObjects:
     - {fileID: 8061716257797923635, guid: 82e9f9f71e7571640a2b1cc86dafdb3b, type: 3}
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 5770798889476134823, guid: 82e9f9f71e7571640a2b1cc86dafdb3b, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 0}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 82e9f9f71e7571640a2b1cc86dafdb3b, type: 3}
 --- !u!4 &1573144175 stripped
 Transform:
@@ -119370,7 +119366,7 @@ PrefabInstance:
         company equipment should verify their assigned items and confirm that the
         equipment information recorded in the inventory system is accurate.
 
-        
+
 
         Any
         damaged, missing, or unregistered equipment should be reported to the Inventory
@@ -128263,11 +128259,11 @@ PrefabInstance:
         maintenance is recommended for several older desktop computers and printers
         to prevent potential operational issues.
 
-        
 
-        The equipment
-        check did not identify any major damage. Minor signs of wear were found on
-        several office chairs and one filing cabinet, but these items remain usable.
+
+        The equipment check did
+        not identify any major damage. Minor signs of wear were found on several
+        office chairs and one filing cabinet, but these items remain usable.
 
 '
       objectReference: {fileID: 0}
@@ -131742,10 +131738,9 @@ PrefabInstance:
         are expected to provide an update regarding their assigned tasks before the
         meeting.
 
-        
 
-        No additional issues were raised during the
-        meeting.
+
+        No additional issues were raised during the meeting.
 
 '
       objectReference: {fileID: 0}
@@ -141780,303 +141775,38 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
---- !u!1 &2032196907
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2032196908}
-  - component: {fileID: 2032196909}
-  - component: {fileID: 2032196913}
-  - component: {fileID: 2032196910}
-  - component: {fileID: 2032196911}
-  - component: {fileID: 2032196912}
-  - component: {fileID: 2032196914}
-  - component: {fileID: 2032196916}
-  - component: {fileID: 2032196917}
-  - component: {fileID: 2032196915}
-  m_Layer: 0
-  m_Name: Player
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &2032196908
+--- !u!4 &2032196908 stripped
 Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 7087013343018533063, guid: e1a52670ed8869a4b9051722a0c89997, type: 3}
+  m_PrefabInstance: {fileID: 8335045499237497440}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2032196907}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 10.47, y: 8.45, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 312796006}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &2032196909
-SpriteRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2032196907}
-  m_Enabled: 1
-  m_CastShadows: 0
-  m_ReceiveShadows: 0
-  m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 0
-  m_RayTraceProcedural: 0
-  m_RayTracingAccelStructBuildFlagsOverride: 0
-  m_RayTracingAccelStructBuildFlags: 1
-  m_SmallMeshCulling: 1
-  m_ForceMeshLod: -1
-  m_MeshLodSelectionBias: 0
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 0
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_GlobalIlluminationMeshLod: 0
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 0.8962264, g: 0.054957304, b: 0.054957304, a: 1}
-  m_FlipX: 0
-  m_FlipY: 0
-  m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
-  m_AdaptiveModeThreshold: 0.5
-  m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
-  m_MaskInteraction: 0
-  m_SpriteSortPoint: 0
---- !u!50 &2032196910
+--- !u!50 &2032196910 stripped
 Rigidbody2D:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 6178002653545517391, guid: e1a52670ed8869a4b9051722a0c89997, type: 3}
+  m_PrefabInstance: {fileID: 8335045499237497440}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2032196907}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDamping: 0
-  m_AngularDamping: 0.05
-  m_GravityScale: 0
-  m_Material: {fileID: 6200000, guid: 630c84f739fddc3409d356e577068dbd, type: 2}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 4
---- !u!61 &2032196911
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2032196907}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Density: 1
-  m_Material: {fileID: 6200000, guid: 630c84f739fddc3409d356e577068dbd, type: 2}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_CompositeOperation: 0
-  m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
-    newSize: {x: 1, y: 1}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  m_Size: {x: 1, y: 1}
-  m_EdgeRadius: 0
---- !u!114 &2032196912
+--- !u!114 &2032196912 stripped
 MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 3939506424093169035, guid: e1a52670ed8869a4b9051722a0c89997, type: 3}
+  m_PrefabInstance: {fileID: 8335045499237497440}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2032196907}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 99f1da3ce81fa664090e7cef1dfae89c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerController2D
-  rb: {fileID: 2032196910}
-  animator: {fileID: 0}
-  spriteRenderer: {fileID: 2032196909}
-  confinement: {fileID: 2032196915}
-  cameraController: {fileID: 519420034}
-  worldCamera: {fileID: 519420031}
-  uiCamera: {fileID: 1610329774}
-  rtDisplay: {fileID: 1268807358}
-  acceleration: 25
-  linearDrag: 1
-  turnSpeed: 720
-  knockbackForce: 5
-  minKnockbackImpact: 1
-  isEnabled: 1
---- !u!95 &2032196913
-Animator:
-  serializedVersion: 7
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2032196907}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_AnimatePhysics: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
---- !u!114 &2032196914
+--- !u!114 &2032196915 stripped
 MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 8390016964784677892, guid: e1a52670ed8869a4b9051722a0c89997, type: 3}
+  m_PrefabInstance: {fileID: 8335045499237497440}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2032196907}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dfabbd1bbf2b1ea45a5ee033d86b2ff1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PlayerInteractor
-  forwardAxis: 1
-  range: 1.5
-  scanInterval: 0.1
-  originOffset: {x: 0, y: 0}
-  interactableMask:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  promptUI: {fileID: 60143910}
---- !u!114 &2032196915
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2032196907}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: cc9a50aed93db4b4ea24a932231de1fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BoxConfinement2D
-  playerCollider: {fileID: 2032196911}
-  padding: 0.2
---- !u!114 &2032196916
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2032196907}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 468e698082730b34d9b1a4ef79a9fb14, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PlayerInventory
-  pickupableItemPrefab: {fileID: 2435841453149011683, guid: 21b5fa1a1fcfc84459b13ef531b27b6e, type: 3}
-  dropCommand: drop
---- !u!114 &2032196917
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2032196907}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8033b757f936568428bcf6deff4e60a0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PlayerTyping
-  OnLetterTyped:
-    m_PersistentCalls:
-      m_Calls: []
-  OnCommandEmitted:
-    m_PersistentCalls:
-      m_Calls: []
-  commands:
-  - word: grab
-    onMatched:
-      m_PersistentCalls:
-        m_Calls: []
-  - word: drop
-    onMatched:
-      m_PersistentCalls:
-        m_Calls: []
-  maxBufferLength: 16
-  resetAfterSeconds: 1.5
-  clearOnMatch: 1
 --- !u!1 &2035380620
 GameObject:
   m_ObjectHideFlags: 0
@@ -158283,6 +158013,83 @@ MonoBehaviour:
     FillEnabled: 1
   texture: {fileID: 0}
   sprite: {fileID: 0}
+--- !u!1001 &8335045499237497440
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 312796006}
+    m_Modifications:
+    - target: {fileID: 1107719258493184322, guid: e1a52670ed8869a4b9051722a0c89997, type: 3}
+      propertyPath: m_Name
+      value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 3607999037228006695, guid: e1a52670ed8869a4b9051722a0c89997, type: 3}
+      propertyPath: promptUI
+      value: 
+      objectReference: {fileID: 60143910}
+    - target: {fileID: 3939506424093169035, guid: e1a52670ed8869a4b9051722a0c89997, type: 3}
+      propertyPath: uiCamera
+      value: 
+      objectReference: {fileID: 1610329774}
+    - target: {fileID: 3939506424093169035, guid: e1a52670ed8869a4b9051722a0c89997, type: 3}
+      propertyPath: rtDisplay
+      value: 
+      objectReference: {fileID: 1268807358}
+    - target: {fileID: 3939506424093169035, guid: e1a52670ed8869a4b9051722a0c89997, type: 3}
+      propertyPath: worldCamera
+      value: 
+      objectReference: {fileID: 519420031}
+    - target: {fileID: 3939506424093169035, guid: e1a52670ed8869a4b9051722a0c89997, type: 3}
+      propertyPath: cameraController
+      value: 
+      objectReference: {fileID: 519420034}
+    - target: {fileID: 7087013343018533063, guid: e1a52670ed8869a4b9051722a0c89997, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 10.47
+      objectReference: {fileID: 0}
+    - target: {fileID: 7087013343018533063, guid: e1a52670ed8869a4b9051722a0c89997, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 8.45
+      objectReference: {fileID: 0}
+    - target: {fileID: 7087013343018533063, guid: e1a52670ed8869a4b9051722a0c89997, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7087013343018533063, guid: e1a52670ed8869a4b9051722a0c89997, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7087013343018533063, guid: e1a52670ed8869a4b9051722a0c89997, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7087013343018533063, guid: e1a52670ed8869a4b9051722a0c89997, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7087013343018533063, guid: e1a52670ed8869a4b9051722a0c89997, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7087013343018533063, guid: e1a52670ed8869a4b9051722a0c89997, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7087013343018533063, guid: e1a52670ed8869a4b9051722a0c89997, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7087013343018533063, guid: e1a52670ed8869a4b9051722a0c89997, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: e1a52670ed8869a4b9051722a0c89997, type: 3}
 --- !u!1001 &8808941821270822013
 PrefabInstance:
   m_ObjectHideFlags: 0

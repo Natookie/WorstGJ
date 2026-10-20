@@ -7,8 +7,7 @@ public class PlayerMovement : MonoBehaviour
 {
     [Header("REFERENCES")]
     [SerializeField] private Rigidbody2D rb;
-    [SerializeField] private Animator animator;
-    [SerializeField] private SpriteRenderer spriteRenderer;
+    [SerializeField] private PlayerVisual playerVisual;
     [SerializeField] private BoxConfinement2D confinement;
     [SerializeField] private CameraController cameraController;
     [SerializeField] private Camera worldCamera;
@@ -26,10 +25,6 @@ public class PlayerMovement : MonoBehaviour
 
     public bool isEnabled = true;
 
-    static readonly int HashX     = Animator.StringToHash("X");
-    static readonly int HashY     = Animator.StringToHash("Y");
-    static readonly int HashSpeed = Animator.StringToHash("Speed");
-
     private Vector2 _facing = Vector2.up;
     private bool _forward;
 
@@ -46,7 +41,7 @@ public class PlayerMovement : MonoBehaviour
     void Update(){
         if(IsBusy){
             _forward = false;
-            UpdateAnimator();
+            playerVisual.UpdateAnimation(_facing, rb.linearVelocity.sqrMagnitude);
             return;
         }
         if(!isEnabled) return;
@@ -58,12 +53,12 @@ public class PlayerMovement : MonoBehaviour
             if(mouseFacing.sqrMagnitude > 0.0001f) _facing = mouseFacing;
         }
 
-        transform.rotation = Quaternion.RotateTowards(
-            transform.rotation,
-            Quaternion.Euler(0f, 0f, Mathf.Atan2(_facing.y, _facing.x) * Mathf.Rad2Deg - 90f),
-            turnSpeed * Time.deltaTime);
+        // transform.rotation = Quaternion.RotateTowards(
+        //     transform.rotation,
+        //     Quaternion.Euler(0f, 0f, Mathf.Atan2(_facing.y, _facing.x) * Mathf.Rad2Deg - 90f),
+        //     turnSpeed * Time.deltaTime);
 
-        UpdateAnimator();
+        playerVisual.UpdateAnimation(_facing, rb.linearVelocity.sqrMagnitude);
     }
 
     void FixedUpdate(){
@@ -138,14 +133,6 @@ public class PlayerMovement : MonoBehaviour
         Vector3 world = worldRay.GetPoint(dist);
         Vector2 dir = (Vector2)(world - transform.position);
         return dir.sqrMagnitude > 0.0001f ? dir.normalized : Vector2.zero;
-    }
-
-    void UpdateAnimator(){
-        if(animator == null) return;
-
-        animator.SetFloat(HashX, _facing.x);
-        animator.SetFloat(HashY, _facing.y);
-        animator.SetFloat(HashSpeed, rb.linearVelocity.sqrMagnitude);
     }
 
     public Vector2 Velocity => rb.linearVelocity;
