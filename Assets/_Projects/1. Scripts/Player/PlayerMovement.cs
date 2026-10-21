@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using Nova;
@@ -8,12 +9,12 @@ public class PlayerMovement : MonoBehaviour
     [Header("REFERENCES")]
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private PlayerVisual playerVisual;
-    [SerializeField] private BoxConfinement2D confinement;
     [SerializeField] private Transform interactFacing;
     [SerializeField] private CameraController cameraController;
     [SerializeField] private Camera worldCamera;
     [SerializeField] private Camera uiCamera;
     [SerializeField] private UIBlock2D rtDisplay;
+    private BoxConfinement2D confinement;
 
     [Header("MOVEMENT")]
     [SerializeField] private float acceleration = 30f;
@@ -24,12 +25,26 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float knockbackForce = 4f;
     [SerializeField] private float minKnockbackImpact = 1f;
 
-    public bool isEnabled = true;
-
+    private readonly List<UIBlockHit> _hitsBuffer = new();
     private Vector2 _facing = Vector2.up;
     private bool _forward;
+    private bool _screenModeActive;
+    private bool _externallyDisabled;
 
-    public bool IsBusy => (cameraController != null && cameraController.IsTransitioning) || DialogueManager.Instance.IsVisible();
+    public bool IsEnabled => !_screenModeActive && !_externallyDisabled;
+
+    public bool IsBusy {
+        get {
+            if(cameraController != null && cameraController.IsTransitioning) return true;
+            if(DialogueManager.Instance != null && DialogueManager.Instance.IsVisible()) return true;
+            return false;
+        }
+    }
+
+    public Vector2 Velocity => rb.linearVelocity;
+    public Vector2 Facing => _facing;
+
+    public void SetEnabled(bool value) => _externallyDisabled = !value;
 
     void Awake(){
         rb.gravityScale = 0f;
@@ -37,51 +52,46 @@ public class PlayerMovement : MonoBehaviour
         rb.freezeRotation = true;
         rb.collisionDetectionMode = CollisionDetectionMode2D.Continuous;
         rb.interpolation = RigidbodyInterpolation2D.Interpolate;
-    }
 
-    void Start()
-    {
         Debug.Assert(rb, "rb is missing");
         Debug.Assert(playerVisual, "playerVisual is missing");
-        Debug.Assert(confinement, "confinement is missing");
         Debug.Assert(interactFacing, "interactFacing is missing");
     }
 
+    void Start(){
+        confinement = BoxConfinement2D.Instance;
+    }
+
     void Update(){
-        if(IsBusy){
+        bool busy = IsBusy;
+
+        if(!busy && IsEnabled){
+            _forward = Keyboard.current != null && Keyboard.current.wKey.isPressed;
+
+            if(!_forward){
+                Vector2 mouseFacing = GetMouseDirection();
+                if(mouseFacing.sqrMagnitude > 0.0001f) _facing = mouseFacing;
+            }
+        }else{
             _forward = false;
-            playerVisual.UpdateAnimation(_facing, rb.linearVelocity.sqrMagnitude);
-            return;
-        }
-        if(!isEnabled) return;
-
-        _forward = Keyboard.current.wKey.isPressed;
-
-        if(!_forward){
-            Vector2 mouseFacing = GetMouseDirection();
-            if(mouseFacing.sqrMagnitude > 0.0001f) _facing = mouseFacing;
         }
 
-        // transform.rotation = Quaternion.RotateTowards(
-        //     transform.rotation,
-        //     Quaternion.Euler(0f, 0f, Mathf.Atan2(_facing.y, _facing.x) * Mathf.Rad2Deg - 90f),
-        //     turnSpeed * Time.deltaTime);
-        
-        // Update interactFacing direction
-        interactFacing.rotation = Quaternion.RotateTowards(
-            interactFacing.rotation,
-            Quaternion.Euler(0f, 0f, Mathf.Atan2(_facing.y, _facing.x) * Mathf.Rad2Deg - 90f),
-            turnSpeed * Time.deltaTime);
+        if(!busy){
+            interactFacing.rotation = Quaternion.RotateTowards(
+                interactFacing.rotation,
+                Quaternion.Euler(0f, 0f, Mathf.Atan2(_facing.y, _facing.x) * Mathf.Rad2Deg - 90f),
+                turnSpeed * Time.deltaTime);
+        }
 
-        playerVisual.UpdateAnimation(_facing, rb.linearVelocity.sqrMagnitude);
+        float speedSq = rb.linearVelocity.sqrMagnitude;
+        playerVisual.UpdateAnimation(_facing, busy ? 0f : speedSq);
     }
 
     void FixedUpdate(){
-        if(IsBusy){
+        if(IsBusy || !IsEnabled){
             rb.linearVelocity = Vector2.zero;
             return;
         }
-        if(!isEnabled) return;
 
         if(_forward) rb.AddForce(_facing * acceleration, ForceMode2D.Force);
 
@@ -122,13 +132,17 @@ public class PlayerMovement : MonoBehaviour
         Vector2 screenPos = Mouse.current.position.ReadValue();
         Ray uiRay = uiCamera.ScreenPointToRay(screenPos);
 
-        var hits = new System.Collections.Generic.List<UIBlockHit>();
-        Interaction.RaycastAll(uiRay, hits);
+        _hitsBuffer.Clear();
+        Interaction.RaycastAll(uiRay, _hitsBuffer);
 
-        UIBlockHit hit = default;
         bool found = false;
-        foreach(var h in hits){
-            if(h.UIBlock == rtDisplay){ hit = h; found = true; break; }
+        UIBlockHit hit = default;
+        for(int i = 0; i < _hitsBuffer.Count; i++){
+            if(_hitsBuffer[i].UIBlock == rtDisplay){
+                hit = _hitsBuffer[i];
+                found = true;
+                break;
+            }
         }
 
         if(!found) return Vector2.zero;
@@ -139,7 +153,6 @@ public class PlayerMovement : MonoBehaviour
         if(size.x <= 0f || size.y <= 0f) return Vector2.zero;
 
         Vector2 uv = new Vector2(local.x / size.x + 0.5f, local.y / size.y + 0.5f);
-
         Ray worldRay = worldCamera.ViewportPointToRay(uv);
         var plane = new Plane(Vector3.forward, Vector3.zero);
 
@@ -150,15 +163,20 @@ public class PlayerMovement : MonoBehaviour
         return dir.sqrMagnitude > 0.0001f ? dir.normalized : Vector2.zero;
     }
 
-    public Vector2 Velocity => rb.linearVelocity;
-    public Vector2 Facing   => _facing;
-    
-    public void EnterScreenMode(string deviceName){
-        isEnabled = false;
-        cameraController.EnterScreenMode(deviceName);
+    public void EnterScreenMode(Transform screenNode){
+        if(screenNode == null){
+            Debug.LogWarning("[PlayerMovement] EnterScreenMode called with null screenNode");
+            return;
+        }
+
+        _screenModeActive = true;
+        cameraController?.EnterScreenMode(screenNode);
     }
+
     public void ExitScreenMode(){
-        isEnabled = true;
-        cameraController.ExitScreenMode();
+        if(!_screenModeActive) return;
+
+        _screenModeActive = false;
+        cameraController?.ExitScreenMode();
     }
 }

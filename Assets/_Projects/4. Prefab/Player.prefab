@@ -50,7 +50,7 @@ GameObject:
   - component: {fileID: 8390016964784677892}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -182,7 +182,6 @@ MonoBehaviour:
   turnSpeed: 720
   knockbackForce: 5
   minKnockbackImpact: 1
-  isEnabled: 1
 --- !u!114 &2553889868679553205
 MonoBehaviour:
   m_ObjectHideFlags: 0

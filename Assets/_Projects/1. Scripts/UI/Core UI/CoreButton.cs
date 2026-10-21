@@ -221,9 +221,17 @@ public class CoreButton : MonoBehaviour
         if(ShowIconColor)  animator.AnimateIconColor(iconCols.unhover, colorDuration);
     }
 
+    #region SETTER GETTER
     public void SetText(string text){
-        if(baseTextBlock != null) baseTextBlock.Text = text;
+        if(baseTextBlock == null) return; 
+        baseTextBlock.Text = text;
     }
-
     public string GetText() => baseTextBlock != null ? baseTextBlock.Text : string.Empty;
+    
+    public void SetIcon(Sprite sprite){
+        if(baseIconBlock == null) return; 
+        baseIconBlock.SetImage(sprite);
+    }
+    public Sprite GetIcon() => baseIconBlock != null ? baseIconBlock.Sprite : null;
+    #endregion
 }

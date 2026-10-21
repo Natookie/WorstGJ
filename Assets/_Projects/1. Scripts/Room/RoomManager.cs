@@ -9,7 +9,6 @@ public class RoomManager : MonoBehaviour
 
     [SerializeField] private Room startingRoom;
     [SerializeField] private CinemachineConfiner2D confiner;
-    [SerializeField] private BoxConfinement2D playerConfinement;
     [SerializeField] private Rigidbody2D playerRb;
 
     private readonly Dictionary<string, Door> doors = new();
@@ -70,6 +69,7 @@ public class RoomManager : MonoBehaviour
             confiner.InvalidateBoundingShapeCache();
         }
 
-        if(playerConfinement != null) playerConfinement.SetBounds(room.Bounds);
+        BoxConfinement2D roomConfinement = BoxConfinement2D.Instance; 
+        if(roomConfinement != null) roomConfinement.SetBounds(room.Bounds);
     }
 }

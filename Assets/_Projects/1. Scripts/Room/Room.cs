@@ -6,6 +6,7 @@ public class Room : MonoBehaviour
     [SerializeField] private Transform defaultSpawn;
     [SerializeField] private BoxCollider2D bounds;
     [SerializeField] private SpriteRenderer floorRenderer;
+    [SerializeField] private Transform interactableParent;
 
     [Space(10)]
     [Header("DESCRIPTION")]
@@ -37,5 +38,8 @@ public class Room : MonoBehaviour
             bounds.isTrigger = true;
             bounds.offset = new Vector2(floorSize.x, floorSize.y) * .5f;
         }
+        if(!interactableParent) interactableParent = transform.GetChild(1);
     }
+
+    public Transform GetInteractableParent() => interactableParent;
 }

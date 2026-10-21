@@ -10,6 +10,10 @@ public class Captcha : MonoBehaviour
     [SerializeField] private GameObject imageGridRoot;
     [SerializeField] private GameObject textMatchRoot;
 
+    [Header("ROBOT")]
+    [SerializeField] private CoreButton notRobotButton;
+    [SerializeField] private Sprite checkmark;
+
     [Header("IMAGE GRID")]
     [SerializeField] private CoreButton[] imageGrids;
     [SerializeField] private CoreButton imageSubmitButton;
@@ -46,6 +50,7 @@ public class Captcha : MonoBehaviour
             imageGrids[i].OnClick.AddListener(() => ToggleImage(capturedIndex));
         }
 
+        notRobotButton?.OnClick.AddListener(ImNotRobotClicked);
         imageSubmitButton?.OnClick.AddListener(OnImageSubmitClicked);
         textMatchSubmitButton?.OnClick.AddListener(OnTextMatchSubmitClicked);
     }
@@ -63,7 +68,11 @@ public class Captcha : MonoBehaviour
 
     #region ROBOT
     public void ToggleRobotPanel() => robotRoot.SetActive(!robotRoot.activeSelf);
-    public void ImNotRobotClicked() => StartCoroutine(ImNotRobotClickedDelayed());
+    public void ImNotRobotClicked(){
+        notRobotButton.SetSelected(true);
+        notRobotButton.SetIcon(checkmark);
+        StartCoroutine(ImNotRobotClickedDelayed());
+    }
     IEnumerator ImNotRobotClickedDelayed(){
         yield return new WaitForSeconds(1.2f);
         ToggleRobotPanel();
