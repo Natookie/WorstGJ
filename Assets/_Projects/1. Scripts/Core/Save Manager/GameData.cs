@@ -16,6 +16,7 @@ public class GameData
     public int score;
     public int levelIndex;
     public List<ItemEntry> inventory = new();
+    public List<DialogueFlag> flags = new();
 
     //Settings
     public SettingsData settings = new();
@@ -23,6 +24,19 @@ public class GameData
     //Meta Data
     public string lastSavedUtc;
     public float playTimeSeconds;
+
+    public bool GetFlag(string id){
+        if(flags == null) return false;
+        var entry = flags.Find(f => f.id == id);
+        return entry != null && entry.value;
+    }
+
+    public void SetFlag(string id, bool value){
+        if(flags == null) flags = new List<DialogueFlag>();
+        var entry = flags.Find(f => f.id == id);
+        if(entry == null) flags.Add(new DialogueFlag { id = id, value = value });
+        else entry.value = value;
+    }
 }
 
 [Serializable]
@@ -41,4 +55,11 @@ public class SettingsData
     public bool fullscreen = true;
 
     public SettingsData Clone() => (SettingsData)MemberwiseClone();
+}
+
+[Serializable]
+public class DialogueFlag
+{
+    public string id;
+    public bool value;
 }

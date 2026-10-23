@@ -8,6 +8,7 @@ public class DialogueUI : MonoBehaviour
 {
     [Header("REFERENCES")]
     [SerializeField] private TextBlock speakerNameText;
+    [SerializeField] private UIBlock2D speakerPotraitBlock;
     [SerializeField] private TextBlock dialogueText;
     [SerializeField] private UIBlock2D panel;
 
@@ -32,6 +33,7 @@ public class DialogueUI : MonoBehaviour
         if(speaker != null){
             speakerNameText.Text = speaker.displayName;
             speakerNameText.Color = speaker.textColor;
+            speakerPotraitBlock.SetImage(speaker.displayPotrait);
         }
 
         panel.gameObject.SetActive(true);
@@ -45,6 +47,7 @@ public class DialogueUI : MonoBehaviour
         if(speaker != null){
             speakerNameText.Text = customName;
             speakerNameText.Color = speaker.textColor;
+            speakerPotraitBlock.SetImage(speaker.displayPotrait);
         }
 
         panel.gameObject.SetActive(true);

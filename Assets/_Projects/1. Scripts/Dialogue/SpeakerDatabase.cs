@@ -4,7 +4,7 @@ using System;
 public enum SpeakerType
 {
     Orang1,
-    Orang2
+    Orang2, 
 }
 
 [CreateAssetMenu(fileName = "SpeakerDatabase", menuName = "Dialogue/Speaker Database")]
@@ -14,6 +14,7 @@ public class SpeakerDatabase : ScriptableObject
     public class SpeakerEntry
     {
         public string displayName;
+        public Sprite displayPotrait;
         public SpeakerType type;
         public Color textColor = Color.white;
     }

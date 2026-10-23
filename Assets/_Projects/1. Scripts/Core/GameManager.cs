@@ -73,7 +73,7 @@ public class GameManager : MonoBehaviour
 
     public void StartApplication(){
         ChangeState(GameState.Playing);
-        DialogueLibrary.Instance.StartCoroutine(DialogueLibrary.Instance.PlayIntroSequence());
+        //StartCoroutine(DialogueLibrary.Instance.Play(introDialogue));
     }
 
     public string GetClockString() => FormatClock(GetClockHours());

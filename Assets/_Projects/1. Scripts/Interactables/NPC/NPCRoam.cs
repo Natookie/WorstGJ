@@ -46,7 +46,7 @@ public class NPCRoam : NPC
         if (!DialogueManager.Instance) return;
 
         DoTalk();
-        DialogueLibrary.Instance.StartCoroutine(DialogueLibrary.Instance.TalkWithNPC());
+        //DialogueLibrary.Instance.StartCoroutine(DialogueLibrary.Instance.TalkWithNPC());
     }
 
     private void DoIdle()

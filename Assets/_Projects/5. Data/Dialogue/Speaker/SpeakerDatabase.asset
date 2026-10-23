@@ -14,8 +14,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::SpeakerDatabase
   speakers:
   - displayName: org 1
+    displayPotrait: {fileID: -7078051512695664338, guid: 95c09bcdcdd8f2045ade81c310ade553, type: 3}
     type: 0
     textColor: {r: 0.70019317, g: 0.740566, b: 0.31788447, a: 1}
   - displayName: org 2
+    displayPotrait: {fileID: 4249517610413040840, guid: 95c09bcdcdd8f2045ade81c310ade553, type: 3}
     type: 1
+    textColor: {r: 0.8632076, g: 0.105865076, b: 0.26848292, a: 1}
+  - displayName: delvinjingbgst
+    displayPotrait: {fileID: -1352412404578593223, guid: 22ce3a72a620f4f4288bf7b51930322c, type: 3}
+    type: 2
     textColor: {r: 0.8632076, g: 0.105865076, b: 0.26848292, a: 1}

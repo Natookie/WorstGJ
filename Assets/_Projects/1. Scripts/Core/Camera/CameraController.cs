@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class CameraController : MonoBehaviour
 {
+    public static CameraController Instance;
+
     [SerializeField] private CinemachineCamera cam;
     [SerializeField] private CinemachineConfiner2D confiner;
     [SerializeField] private Transform playerTarget;
@@ -14,6 +16,14 @@ public class CameraController : MonoBehaviour
     private Coroutine enterRoutine;
 
     public bool IsTransitioning { get; private set; }
+
+    void Awake(){
+        if(Instance == null) Instance = this;
+        else{
+            Destroy(gameObject);
+            return;
+        }
+    }
 
     public void EnterScreenMode(Transform screenNode){
         if(screenNode == null){
@@ -62,6 +72,23 @@ public class CameraController : MonoBehaviour
 
     IEnumerator EndEnterAfter(float seconds){
         yield return new WaitForSeconds(seconds);
+        IsTransitioning = false;
+        enterRoutine = null;
+    }
+
+    public void FocusOnWorldTarget(Transform worldTarget, bool autoRestore){
+        if(worldTarget == null) return;
+        if(enterRoutine != null) StopCoroutine(enterRoutine);
+        
+        cam.Follow = worldTarget;
+        cam.LookAt = worldTarget;
+
+        IsTransitioning = true;
+        enterRoutine = StartCoroutine(EndFocusAfter(worldTarget, autoRestore));
+    }
+
+    IEnumerator EndFocusAfter(Transform worldTarget, bool autoRestore){
+        yield return new WaitForSeconds(enterTransitionTime);
         IsTransitioning = false;
         enterRoutine = null;
     }

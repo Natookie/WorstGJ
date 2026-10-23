@@ -5,6 +5,9 @@ public class TelephoneDialController : MonoBehaviour
     [SerializeField] private TelephonePanel panel;
     [SerializeField] private CoreButton dialButton;
     [SerializeField] private CoreButton resetButton;
+    [Space(10)]
+    [SerializeField] private DialogueAsset successTelephoneDialogue;
+    [SerializeField] private DialogueAsset failedTelephoneDialogue;
     int currentIndex = 0;
 
     private const string DIAL_TARGET = "4827316";
@@ -33,8 +36,8 @@ public class TelephoneDialController : MonoBehaviour
         panel.RandomizePointer();
     }
     void OnDialReset(){
-        if(_dialedNumber.Equals(DIAL_TARGET)) Debug.Log("correct");
-        else Debug.Log("incorrect");
+        if(_dialedNumber.Equals(DIAL_TARGET)) StartCoroutine(DialogueLibrary.Instance.Play(successTelephoneDialogue));
+        else StartCoroutine(DialogueLibrary.Instance.Play(failedTelephoneDialogue));
 
         panel.ResetNumberBlock();
         currentIndex = 0;

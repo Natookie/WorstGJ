@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class PickupableItem : MonoBehaviour, IInteractable
@@ -80,6 +81,10 @@ public class PickupableItem : MonoBehaviour, IInteractable
         }   
     }
 
-    void OnEnable() => BoxConfinement2D.Instance.AdjustPickupableItems(this, true);
-    void OnDisable() => BoxConfinement2D.Instance.AdjustPickupableItems(this, false);
+    void OnEnable() => SetConfinement(this, true);
+    void OnDisable() => SetConfinement(this, false);
+    IEnumerator SetConfinement(PickupableItem pi, bool value){
+        yield return null;
+        BoxConfinement2D.Instance.AdjustPickupableItems(pi, value);
+    }
 }

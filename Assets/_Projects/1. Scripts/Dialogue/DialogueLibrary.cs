@@ -1,5 +1,5 @@
-using UnityEngine;
 using System.Collections;
+using UnityEngine;
 
 public class DialogueLibrary : MonoBehaviour
 {
@@ -18,32 +18,36 @@ public class DialogueLibrary : MonoBehaviour
         dm = DialogueManager.Instance;
     }
 
-    public IEnumerator PlayIntroSequence(){
+    public IEnumerator Play(DialogueAsset asset){
+        if(asset == null || asset.Lines == null || asset.Lines.Count == 0) yield break;
+
+        if(dm == null) dm = DialogueManager.Instance;
+        if(dm == null){
+            Debug.LogError("[DialogueLibrary] DialogueManager.Instance is null");
+            yield break;
+        }
+
         dm.StartDialogue();
 
-        dm.PlayDialogue(SpeakerType.Orang1, "Halo semuanya perkenalkan nama saya Thomas Galih");
-        yield return dm.WaitForSpace();
+        for(int i = 0; i < asset.Lines.Count; i++){
+            var line = asset.Lines[i];
 
-        dm.PlayDialogue(SpeakerType.Orang2, "Selamat pagi pak, saya anak baru di sini");
-        yield return dm.WaitForSpace();
+            dm.PlayDialogue(line.speaker, line.text);
 
-        dm.PlayDialogue(SpeakerType.Orang1, "Nyohohohohoh");
-        yield return dm.WaitForSpace();
+            if(line.onShownAction != null){
+                foreach(var action in line.onShownAction)
+                    action?.Execute();
+            }
+            line.onShown?.Invoke();
 
-        dm.EndDialogue();
-    }
+            yield return dm.WaitForSpace();
 
-    public IEnumerator TalkWithNPC(){
-        dm.StartDialogue();
-        
-        dm.PlayDialogue(SpeakerType.Orang1, "Kekekeke keke, ke kekeke?");
-        yield return dm.WaitForSpace();
-
-        dm.PlayDialogue(SpeakerType.Orang2, "Wawa wa wa.");
-        yield return dm.WaitForSpace();
-
-        dm.PlayDialogue(SpeakerType.Orang1, "Wkwkwkwk wkwk");
-        yield return dm.WaitForSpace();
+            if(line.onAdvancedAction != null){
+                foreach(var action in line.onAdvancedAction)
+                    action?.Execute();
+            }
+            line.onAdvanced?.Invoke();
+        }
 
         dm.EndDialogue();
     }
