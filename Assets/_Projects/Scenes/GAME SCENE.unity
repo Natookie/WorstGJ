@@ -19168,6 +19168,7 @@ GameObject:
   - component: {fileID: 208514021}
   - component: {fileID: 208514024}
   - component: {fileID: 208514023}
+  - component: {fileID: 208514025}
   m_Layer: 5
   m_Name: Close
   m_TagString: Untagged
@@ -19462,12 +19463,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a2fb8ae11859664389fe0165d062ed4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CoreButton
-  containerBlock: {fileID: 0}
-  baseBlock: {fileID: 0}
+  containerBlock: {fileID: 208514021}
+  baseBlock: {fileID: 208514021}
   baseIconBlock: {fileID: 0}
-  baseTextBlock: {fileID: 0}
-  animator: {fileID: 0}
-  animate: 1
+  baseTextBlock: {fileID: 1280831645}
+  animator: {fileID: 208514025}
+  animate: 0
   syncIconWithText: 1
   clickChannel: {fileID: 0}
   clickId: 
@@ -19631,6 +19632,22 @@ MonoBehaviour:
     Y: 0
     Z: 0
   GestureSpace: 0
+--- !u!114 &208514025
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 208514019}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7677930238bc89f49858bf0179791434, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::UIBlockAnimator
+  baseBlock: {fileID: 208514021}
+  baseTextBlock: {fileID: 1280831645}
+  baseIconBlock: {fileID: 0}
+  colorDuration: 0.1
 --- !u!1 &214193293
 GameObject:
   m_ObjectHideFlags: 0
@@ -125033,7 +125050,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1644737607}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 50a49e2581dc7014b846d6c07daeb036, type: 3}
   m_Name: 
@@ -125042,6 +125059,8 @@ MonoBehaviour:
   targetPosition: {x: 0, y: 0}
   duration: 10
   timer: {x: 1, y: 1}
+  introDisplayTime: 5
+  tipsText: {fileID: 692578681}
 --- !u!114 &1648181869 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4636241460474058336, guid: 4ade537fe5178764db04818650b7ab48, type: 3}

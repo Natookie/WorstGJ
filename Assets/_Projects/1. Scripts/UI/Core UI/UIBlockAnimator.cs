@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections;
 using Nova;
 
 public class UIBlockAnimator : MonoBehaviour
@@ -26,6 +27,9 @@ public class UIBlockAnimator : MonoBehaviour
 
     public Vector2 OriginalSize     => originalSize;
     public Vector2 OriginalPosition => originalPosition;
+    public Vector2 CurrentPosition => baseBlock != null ? baseBlock.Position.XY.Value : Vector2.zero;
+
+    void Start() => CaptureOriginals();
 
     public void Assign(UIBlock2D block, TextBlock text, UIBlock2D icon = null){
         baseBlock = block;
@@ -82,13 +86,15 @@ public class UIBlockAnimator : MonoBehaviour
         }.Run(duration);
     }
 
-    public void AnimateMove(Vector2 fromTarget, Vector2 toTarget, float duration, bool fromCurrent = false){
+    public void AnimateMove(Vector2 fromTarget, Vector2 toTarget, float duration, bool fromCurrent = false, System.Action onComplete = null){
         moveHandle.Cancel();
         moveHandle = new MoveAnimation{
             Block = baseBlock,
             From = fromCurrent ? baseBlock.Position.XY.Value : fromTarget,
             To = toTarget
         }.Run(duration);
+
+        if(onComplete != null) StartCoroutine(InvokeAfter(duration, onComplete));
     }
 
     public void AnimateShake(float amplitude, float frequency, float duration){
@@ -110,6 +116,11 @@ public class UIBlockAnimator : MonoBehaviour
 
         AnimateScale(Vector2.one, Vector2.one, duration, true);
         AnimateMove(originalPosition, originalPosition, duration, true);
+    }
+
+    IEnumerator InvokeAfter(float seconds, System.Action cb){
+        yield return new WaitForSeconds(seconds);
+        cb?.Invoke();
     }
 }
 
