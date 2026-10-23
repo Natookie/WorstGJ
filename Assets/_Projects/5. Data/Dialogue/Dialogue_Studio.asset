@@ -10,14 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 97028838fcdf09046bb2f92640945ac4, type: 3}
-  m_Name: Dialogue_Test
+  m_Name: Dialogue_Studio
   m_EditorClassIdentifier: Assembly-CSharp::DialogueAsset
   lines:
   - speaker: 0
-    text: Halo semuanya
+    text: Excuse me, boss told me to help you choose a TV thumbnail?
     useAction: 1
     onShownAction:
-    - {fileID: 11400000, guid: 2f329883c4ca9dd408260dbca48a9d14, type: 2}
+    - {fileID: 11400000, guid: 205e7fb7442bc3f45915bf312975283b, type: 2}
     onAdvancedAction: []
     onShown:
       m_PersistentCalls:
@@ -37,8 +37,21 @@ MonoBehaviour:
     onAdvanced:
       m_PersistentCalls:
         m_Calls: []
-  - speaker: 1
-    text: FUck you nigger
+  - speaker: 2
+    text: Uhh, are you the new intern guy? Do you even realize that TV doesn't use
+      a thumbnail?
+    useAction: 1
+    onShownAction:
+    - {fileID: 11400000, guid: 2f329883c4ca9dd408260dbca48a9d14, type: 2}
+    onAdvancedAction: []
+    onShown:
+      m_PersistentCalls:
+        m_Calls: []
+    onAdvanced:
+      m_PersistentCalls:
+        m_Calls: []
+  - speaker: 0
+    text: Okay studio guy, i am just following what the to-do list told me to do.
     useAction: 1
     onShownAction:
     - {fileID: 11400000, guid: 205e7fb7442bc3f45915bf312975283b, type: 2}
@@ -49,12 +62,14 @@ MonoBehaviour:
     onAdvanced:
       m_PersistentCalls:
         m_Calls: []
-  - speaker: 0
-    text: ay SHibal
+  - speaker: 2
+    text: I'm just joking shit face. Here, my clipboard, there is an instruction
+      there.
     useAction: 1
     onShownAction:
-    - {fileID: 11400000, guid: 205e7fb7442bc3f45915bf312975283b, type: 2}
-    onAdvancedAction: []
+    - {fileID: 11400000, guid: 2f329883c4ca9dd408260dbca48a9d14, type: 2}
+    onAdvancedAction:
+    - {fileID: 11400000, guid: 5137d21fd698ef54dbc4cfadf7bf6ef2, type: 2}
     onShown:
       m_PersistentCalls:
         m_Calls: []

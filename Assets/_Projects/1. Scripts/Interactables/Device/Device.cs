@@ -11,7 +11,6 @@ public class Device : BaseDevice
     [SerializeField] private SpriteRenderer sr;
     [SerializeField] private Sprite deviceSprite;
 
-    private PlayerMovement _activePlayer;
     private bool _inUse;
 
     void Awake(){
@@ -19,8 +18,21 @@ public class Device : BaseDevice
         if(sr != null && deviceSprite != null) sr.sprite = deviceSprite;
     }
 
-    void Start(){
-        registry = ScreenRegistry.Instance;
+    void Start() => registry = ScreenRegistry.Instance;
+
+    void OnDisable(){
+        if(CameraController.Instance != null) CameraController.Instance.OnScreenModeExit -= HandleScreenModeExit;
+    }
+
+    void HandleScreenModeExit(){
+        if(!_inUse) return;
+
+        _inUse = false;
+
+        if(CameraController.Instance != null)
+            CameraController.Instance.OnScreenModeExit -= HandleScreenModeExit;
+
+        OnDeviceClosed();
     }
 
     public override void OnInteract(GameObject interactor){
@@ -36,27 +48,15 @@ public class Device : BaseDevice
             return;
         }
 
-        if(!interactor.TryGetComponent(out PlayerMovement player)) return;
         if(!interactor.TryGetComponent(out PlayerInteractor interactorUi)) return;
 
         _inUse = true;
-        _activePlayer = player;
 
-        player.EnterScreenMode(node);
+        CameraController.Instance.OnScreenModeExit -= HandleScreenModeExit;
+        CameraController.Instance.OnScreenModeExit += HandleScreenModeExit;
+
+        CameraController.Instance.EnterScreenMode(node);
         interactorUi.Refresh();
-    }
-
-    public void CloseDevice(){
-        if(!_inUse) return;
-
-        _inUse = false;
-
-        if(_activePlayer != null){
-            _activePlayer.ExitScreenMode();
-            _activePlayer = null;
-        }
-
-        OnDeviceClosed();
     }
 
     protected virtual void OnDeviceClosed(){ }

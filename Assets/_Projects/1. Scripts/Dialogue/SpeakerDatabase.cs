@@ -3,8 +3,10 @@ using System;
 
 public enum SpeakerType
 {
-    Orang1,
-    Orang2, 
+    MainCharacter,
+    Grandma,
+    StudioGuy,
+    Worker, 
 }
 
 [CreateAssetMenu(fileName = "SpeakerDatabase", menuName = "Dialogue/Speaker Database")]

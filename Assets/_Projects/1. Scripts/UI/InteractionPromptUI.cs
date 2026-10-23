@@ -8,12 +8,37 @@ public class InteractionPromptUI : MonoBehaviour
     [SerializeField] private GameObject root;
     [SerializeField] private TextBlock label;
 
+    private bool _suppressed;
+
     void Awake(){
         if(Instance == null) Instance = this;
         else Destroy(gameObject);
     }
 
+    void Start(){
+        if(CameraController.Instance != null){
+            CameraController.Instance.OnScreenModeEnter += HandleScreenModeEnter;
+            CameraController.Instance.OnScreenModeExit += HandleScreenModeExit;
+            _suppressed = CameraController.Instance.IsInScreenMode;
+            if(_suppressed) Hide();
+        }
+    }
+
+    void OnDisable(){
+        if(CameraController.Instance != null){
+            CameraController.Instance.OnScreenModeEnter -= HandleScreenModeEnter;
+            CameraController.Instance.OnScreenModeExit -= HandleScreenModeExit;
+        }
+    }
+
+    void HandleScreenModeEnter(){
+        _suppressed = true;
+        Hide();
+    }
+    void HandleScreenModeExit() => _suppressed = false;
+
     public void Show(string message){
+        if(_suppressed) return;
         if(string.IsNullOrEmpty(message)){
             root.SetActive(false);
             return;

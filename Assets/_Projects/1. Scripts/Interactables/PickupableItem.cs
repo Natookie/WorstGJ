@@ -1,4 +1,3 @@
-using System.Collections;
 using UnityEngine;
 
 public class PickupableItem : MonoBehaviour, IInteractable
@@ -19,15 +18,24 @@ public class PickupableItem : MonoBehaviour, IInteractable
     public string promptMessage => "Item";
 
     private GameObject currentInteractor;
-    
-    private void Start(){
+
+    void Start(){
         Debug.Assert(rb, "rb is empty");
         Debug.Assert(spriteRenderer, "spriteRenderer is empty");
         Debug.Assert(itemData, "itemData is empty");
         Debug.Assert(coll, "circleCollider is empty");
 
+        if(coll == null) coll = GetComponent<CircleCollider2D>();
+
         EventBus.TypeCommandEmitted.AddListener(OnTypeCommandEmitted);
         SetItem(itemData);
+
+        if(BoxConfinement2D.Instance != null) BoxConfinement2D.Instance.AdjustPickupableItems(this, true);
+    }
+
+    void OnDestroy() => EventBus.TypeCommandEmitted.RemoveListener(OnTypeCommandEmitted);
+    void OnDisable(){
+        if(BoxConfinement2D.Instance != null) BoxConfinement2D.Instance.AdjustPickupableItems(this, false);
     }
 
     void FixedUpdate(){
@@ -47,14 +55,14 @@ public class PickupableItem : MonoBehaviour, IInteractable
         }
     }
 
-    public void OnHover(GameObject interactor) {currentInteractor = interactor;}
-    public void OnUnhover(GameObject interactor) {currentInteractor = null;}
-    public void OnInteract(GameObject interactor) {}
+    public void OnHover(GameObject interactor) => currentInteractor = interactor;
+    public void OnUnhover(GameObject interactor) => currentInteractor = null;
+    public void OnInteract(GameObject interactor) { }
 
     public void SetItem(ItemData newItemData){
+        if(newItemData == null) return;
         itemData = newItemData;
-        spriteRenderer.sprite = itemData.itemSprite;
-        if(coll == null) coll = GetComponent<CircleCollider2D>();
+        if(spriteRenderer != null) spriteRenderer.sprite = itemData.itemSprite;
     }
 
     public void SetVelocity(Vector2 direction, float speed){
@@ -63,12 +71,12 @@ public class PickupableItem : MonoBehaviour, IInteractable
     }
 
     private void OnTypeCommandEmitted(string command){
-        if (pickupCommand != command || currentInteractor == null) return;
+        if(pickupCommand != command || currentInteractor == null) return;
 
         if(!currentInteractor.TryGetComponent(out PlayerInteractor playerInteractor)) return;
         if(!currentInteractor.TryGetComponent(out PlayerInventory playerInventory)) return;
 
-        if (!playerInventory.HasItem){
+        if(!playerInventory.HasItem){
             playerInventory.GrabItem(itemData);
             playerInteractor.Refresh();
             Destroy(gameObject);
@@ -76,15 +84,7 @@ public class PickupableItem : MonoBehaviour, IInteractable
     }
 
     private void OnCollisionEnter2D(Collision2D collision){
-        if((deviceLayer.value & (1 << collision.gameObject.layer)) > 0){
-            Debug.Log("Touched Device");
-        }   
-    }
-
-    void OnEnable() => SetConfinement(this, true);
-    void OnDisable() => SetConfinement(this, false);
-    IEnumerator SetConfinement(PickupableItem pi, bool value){
-        yield return null;
-        BoxConfinement2D.Instance.AdjustPickupableItems(pi, value);
+        if((deviceLayer.value & (1 << collision.gameObject.layer)) == 0) return;
+        Debug.Log("[PickupableItem] Touched Device");
     }
 }

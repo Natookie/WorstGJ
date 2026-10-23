@@ -4,7 +4,6 @@ using UnityEngine;
 public class CameraFocusAction : DialogueAction
 {
     [SerializeField] private string targetId;
-    [SerializeField] private bool restoreToPlayerAfterDialogue = true;
 
     public override void Execute(){
         var target = TransformRegistry.Instance?.Get(targetId);
@@ -13,6 +12,6 @@ public class CameraFocusAction : DialogueAction
             return;
         }
 
-        CameraController.Instance?.FocusOnWorldTarget(target, restoreToPlayerAfterDialogue);
+        CameraController.Instance?.FocusOnWorldTarget(target);
     }
 }

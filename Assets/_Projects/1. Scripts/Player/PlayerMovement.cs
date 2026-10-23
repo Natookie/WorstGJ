@@ -14,7 +14,6 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private Camera worldCamera;
     [SerializeField] private Camera uiCamera;
     [SerializeField] private UIBlock2D rtDisplay;
-    private BoxConfinement2D confinement;
 
     [Header("MOVEMENT")]
     [SerializeField] private float acceleration = 30f;
@@ -26,16 +25,18 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float minKnockbackImpact = 1f;
 
     private readonly List<UIBlockHit> _hitsBuffer = new();
+    private BoxConfinement2D confinement;
+
     private Vector2 _facing = Vector2.up;
     private bool _forward;
-    private bool _screenModeActive;
     private bool _externallyDisabled;
 
-    public bool IsEnabled => !_screenModeActive && !_externallyDisabled;
+    public bool IsEnabled => !_externallyDisabled;
 
     public bool IsBusy {
         get {
             if(cameraController != null && cameraController.IsTransitioning) return true;
+            if(cameraController != null && cameraController.IsInScreenMode) return true;
             if(DialogueManager.Instance != null && DialogueManager.Instance.IsVisible()) return true;
             return false;
         }
@@ -161,22 +162,5 @@ public class PlayerMovement : MonoBehaviour
         Vector3 world = worldRay.GetPoint(dist);
         Vector2 dir = (Vector2)(world - transform.position);
         return dir.sqrMagnitude > 0.0001f ? dir.normalized : Vector2.zero;
-    }
-
-    public void EnterScreenMode(Transform screenNode){
-        if(screenNode == null){
-            Debug.LogWarning("[PlayerMovement] EnterScreenMode called with null screenNode");
-            return;
-        }
-
-        _screenModeActive = true;
-        cameraController?.EnterScreenMode(screenNode);
-    }
-
-    public void ExitScreenMode(){
-        if(!_screenModeActive) return;
-
-        _screenModeActive = false;
-        cameraController?.ExitScreenMode();
     }
 }

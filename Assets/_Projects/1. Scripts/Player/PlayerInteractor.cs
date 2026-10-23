@@ -1,4 +1,3 @@
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -27,9 +26,7 @@ public class PlayerInteractor : MonoBehaviour
         forwardAxis == ForwardAxis.Right ? (Vector2)interactFacing.transform.right
         : (Vector2)interactFacing.transform.up;
 
-
-    void Awake()
-    {
+    void Awake(){
         _filter = new ContactFilter2D
         {
             useLayerMask = true,
@@ -38,55 +35,58 @@ public class PlayerInteractor : MonoBehaviour
         };
     }
 
-    void Start()
-    {
+    void Start(){
         Debug.Assert(interactFacing, "interactFacing is missing");
     }
 
-    void Update()
-    {
+    void Update(){
+        if(IsSuppressed()){
+            if(current != null){
+                current.OnUnhover(gameObject);
+                current = null;
+                Refresh();
+            }
+            return;
+        }
+
         _timer -= Time.deltaTime;
 
-        // Retarget immediately when the player turns, otherwise on the interval.
         Vector2 facing = Facing;
         bool turned = (facing - _lastFacing).sqrMagnitude > 0.0001f;
 
-        if (_timer <= 0f || turned)
-        {
+        if(_timer <= 0f || turned){
             _timer = scanInterval;
             _lastFacing = facing;
             UpdateTarget(facing);
         }
 
-        if (current != null && Keyboard.current.eKey.wasPressedThisFrame)
+        if(current != null && Keyboard.current != null && Keyboard.current.eKey.wasPressedThisFrame)
             current.OnInteract(gameObject);
     }
 
-    void UpdateTarget(Vector2 facing)
-    {
+    bool IsSuppressed(){
+        if(CameraController.Instance != null && CameraController.Instance.IsInScreenMode) return true;
+        if(DialogueManager.Instance != null && DialogueManager.Instance.IsVisible()) return true;
+        return false;
+    }
+
+    void UpdateTarget(Vector2 facing){
         Vector2 origin = (Vector2)interactFacing.transform.position + originOffset;
         int count = Physics2D.Raycast(origin, facing, _filter, _buffer, range);
 
         IInteractable found = null;
 
-        // Results are sorted nearest-first, so the first valid hit wins.
-        for (int i = 0; i < count; i++)
-        {
+        for(int i = 0; i < count; i++){
             var hit = _buffer[i].collider;
-            if (hit.transform.IsChildOf(interactFacing.transform)) continue; // ignore the player's own colliders
-            if (!hit.TryGetComponent(out IInteractable interactable)) continue;
-            if (!interactable.CanInteract) continue;
+            if(hit.transform.IsChildOf(interactFacing.transform)) continue;
+            if(!hit.TryGetComponent(out IInteractable interactable)) continue;
+            if(!interactable.CanInteract) continue;
 
             found = interactable;
             break;
         }
 
-        // Check is found interacable is the same as current
-        if (ReferenceEquals(found, current)) return;
-
-        // Change current interacable
-        if (!current.IsUnityNull()) current.OnUnhover(gameObject);
-        if (!found.IsUnityNull()) found.OnHover(gameObject);
+        if(ReferenceEquals(found, current)) return;
         current = found;
 
         Refresh();
@@ -94,10 +94,9 @@ public class PlayerInteractor : MonoBehaviour
 
     public void Refresh() => promptUI?.Show(current?.promptMessage);
 
-    void OnDrawGizmosSelected()
-    {
-        if (!interactFacing) return;
-        
+    void OnDrawGizmosSelected(){
+        if(!interactFacing) return;
+
         Gizmos.color = Color.yellow;
         Vector2 origin = (Vector2)interactFacing.transform.position + originOffset;
         Gizmos.DrawLine(origin, origin + Facing * range);

@@ -33,13 +33,8 @@ public class DialogueManager : MonoBehaviour
         }
     }
 
-    public void StartDialogue()
-    {
-        DialogueStarted?.Invoke();
-    }
-
-    public void EndDialogue()
-    {
+    public void StartDialogue() => DialogueStarted?.Invoke();
+    public void EndDialogue(){
         HideDialogue();
         DialogueEnded?.Invoke();
     }
