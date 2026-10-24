@@ -159787,8 +159787,20 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4960253119714507722, guid: b0aafe990303674429d1c9de8bc2d5cb, type: 3}
+      propertyPath: neededItemData
+      value: 
+      objectReference: {fileID: 11400000, guid: dcd74fadccdc73849a48288d15f11cbc, type: 2}
+    - target: {fileID: 4960253119714507722, guid: b0aafe990303674429d1c9de8bc2d5cb, type: 3}
       propertyPath: promptOverride
       value: Telephones
+      objectReference: {fileID: 0}
+    - target: {fileID: 4960253119714507722, guid: b0aafe990303674429d1c9de8bc2d5cb, type: 3}
+      propertyPath: neededItemSuffix
+      value: '- Need Test Item'
+      objectReference: {fileID: 0}
+    - target: {fileID: 4960253119714507722, guid: b0aafe990303674429d1c9de8bc2d5cb, type: 3}
+      propertyPath: isItemNeededToOperate
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7670776416875673915, guid: b0aafe990303674429d1c9de8bc2d5cb, type: 3}
       propertyPath: m_IsTrigger

@@ -85,6 +85,12 @@ public class PickupableItem : MonoBehaviour, IInteractable
 
     private void OnCollisionEnter2D(Collision2D collision){
         if((deviceLayer.value & (1 << collision.gameObject.layer)) == 0) return;
-        Debug.Log("[PickupableItem] Touched Device");
+
+        // Debug.Log("[PickupableItem] Touched Device");
+
+        if (!collision.gameObject.TryGetComponent(out BaseDevice device)) return;
+
+        bool isMarkedDestroy = device.TouchedByItem(itemData.itemName);
+        if (isMarkedDestroy) Destroy(gameObject);
     }
 }

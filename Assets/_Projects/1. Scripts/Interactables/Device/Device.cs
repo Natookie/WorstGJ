@@ -7,11 +7,17 @@ public class Device : BaseDevice
     [SerializeField] private string promptOverride;
     private ScreenRegistry registry;
 
+    [Header("ITEM")]
+    [SerializeField] private bool isItemNeededToOperate = false;
+    [SerializeField] private ItemData neededItemData;
+    [SerializeField] private string neededItemSuffix = " - Need Item";
+
     [Header("VISUAL")]
     [SerializeField] private SpriteRenderer sr;
     [SerializeField] private Sprite deviceSprite;
 
     private bool _inUse;
+    private bool _isNeededItemFulfilled = false;
 
     void Awake(){
         if(sr == null) sr = GetComponentInChildren<SpriteRenderer>();
@@ -37,6 +43,9 @@ public class Device : BaseDevice
 
     public override void OnInteract(GameObject interactor){
         if(_inUse) return;
+
+        if (isItemNeededToOperate) if (!_isNeededItemFulfilled) return;
+
         if(screen == null || registry == null){
             Debug.LogWarning($"[Device] '{name}' missing screen/registry");
             return;
@@ -59,10 +68,40 @@ public class Device : BaseDevice
         interactorUi.Refresh();
     }
 
+    public override bool TouchedByItem(string itemName)
+    {
+        if (!isItemNeededToOperate) return false;
+        if (_isNeededItemFulfilled) return false;
+
+        // Check neededItemData
+        if (!neededItemData)
+        {
+            Debug.LogWarning($"neededItemData is empty");
+            return false;
+        }
+
+        if (itemName == neededItemData.itemName)
+        {
+            _isNeededItemFulfilled = true;
+            return true;
+        }
+        else return false;
+    }
+
     protected virtual void OnDeviceClosed(){ }
     protected override bool GetCanInteract() => !_inUse;
-    protected override string GetPromptMessage(){
+    protected override string GetPromptMessage()
+    {
         if(_inUse) return string.Empty;
-        return string.IsNullOrEmpty(promptOverride) ? base.GetPromptMessage() : promptOverride;
+
+        string returnMessage = "";
+
+        if (string.IsNullOrEmpty(promptOverride)) returnMessage += base.GetPromptMessage();
+        else returnMessage += promptOverride;
+
+        if (isItemNeededToOperate)
+            if (!_isNeededItemFulfilled) returnMessage += neededItemSuffix;
+
+        return returnMessage;
     }
 }
