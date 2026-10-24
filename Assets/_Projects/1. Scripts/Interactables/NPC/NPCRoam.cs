@@ -4,6 +4,7 @@ public class NPCRoam : NPC
 {
     [Header("REFERENCES")]
     [SerializeField] private NPCMovementComponent npcMovementComponent;
+    [SerializeField] private NPCVisual npcVisual;
     [Header("NPC SETTINGS")]
     [SerializeField] private float minIdleTime = 0.5f;
     [SerializeField] private float maxIdleTime = 2.0f;
@@ -20,6 +21,7 @@ public class NPCRoam : NPC
     private void Start()
     {
         Debug.Assert(npcMovementComponent, "npcMovementComponent is missing");
+        Debug.Assert(npcVisual, "npcVisual is missing");
 
         if (DialogueManager.Instance)
         {
@@ -38,6 +40,14 @@ public class NPCRoam : NPC
         {
             idleTimer -= Time.deltaTime;
             if (idleTimer <= 0.0f) DoWalk();
+        }
+
+        if (npcVisual)
+        {
+            npcVisual.UpdateAnimation(
+                npcMovementComponent.Velocity.normalized,
+                npcMovementComponent.Velocity.sqrMagnitude
+            );
         }
     }
 
