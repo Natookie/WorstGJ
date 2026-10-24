@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -86,7 +87,13 @@ public class PlayerInteractor : MonoBehaviour
             break;
         }
 
-        if(ReferenceEquals(found, current)) return;
+        // Check is found interacable is the same as current
+        if (ReferenceEquals(found, current)) return;
+
+        // Change current interacable
+        if (!current.IsUnityNull()) current.OnUnhover(gameObject);
+        if (!found.IsUnityNull()) found.OnHover(gameObject);
+
         current = found;
 
         Refresh();
