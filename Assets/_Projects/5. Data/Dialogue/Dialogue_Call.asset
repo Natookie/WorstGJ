@@ -1,0 +1,790 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 97028838fcdf09046bb2f92640945ac4, type: 3}
+  m_Name: Dialogue_Call
+  m_EditorClassIdentifier: Assembly-CSharp::DialogueAsset
+  lines:
+  - speaker: 4
+    text: "Call our business partner using the telephone in Mrs. Darwin\u2019s office."
+    useAction: 0
+    onShownAction: []
+    onAdvancedAction: []
+    onShown:
+      m_PersistentCalls:
+        m_Calls: []
+    onAdvanced:
+      m_PersistentCalls:
+        m_Calls: []
+  - speaker: 0
+    text: Finally. A job that requires communication skills. My condolences to the
+      partner.
+    useAction: 0
+    onShownAction: []
+    onAdvancedAction: []
+    onShown:
+      m_PersistentCalls:
+        m_Calls: []
+    onAdvanced:
+      m_PersistentCalls:
+        m_Calls: []
+  - speaker: 0
+    text: Locked. Of course.
+    useAction: 0
+    onShownAction: []
+    onAdvancedAction: []
+    onShown:
+      m_PersistentCalls:
+        m_Calls: []
+    onAdvanced:
+      m_PersistentCalls:
+        m_Calls: []
+  - speaker: 0
+    text: Mrs. Darwin? I need to use your phone.
+    useAction: 0
+    onShownAction: []
+    onAdvancedAction: []
+    onShown:
+      m_PersistentCalls:
+        m_Calls: []
+    onAdvanced:
+      m_PersistentCalls:
+        m_Calls: []
+  - speaker: 1
+    text: Use the keypad.
+    useAction: 0
+    onShownAction: []
+    onAdvancedAction: []
+    onShown:
+      m_PersistentCalls:
+        m_Calls: []
+    onAdvanced:
+      m_PersistentCalls:
+        m_Calls: []
+  - speaker: 0
+    text: "What\u2019s the code?"
+    useAction: 0
+    onShownAction: []
+    onAdvancedAction: []
+    onShown:
+      m_PersistentCalls:
+        m_Calls: []
+    onAdvanced:
+      m_PersistentCalls:
+        m_Calls: []
+  - speaker: 1
+    text: One one. Two fours. Four.
+    useAction: 0
+    onShownAction: []
+    onAdvancedAction: []
+    onShown:
+      m_PersistentCalls:
+        m_Calls: []
+    onAdvanced:
+      m_PersistentCalls:
+        m_Calls: []
+  - speaker: 0
+    text: One, two, three, four?
+    useAction: 0
+    onShownAction: []
+    onAdvancedAction: []
+    onShown:
+      m_PersistentCalls:
+        m_Calls: []
+    onAdvanced:
+      m_PersistentCalls:
+        m_Calls: []
+  - speaker: 1
+    text: No. ONE ONE. TWO FOURS. FOUR.
+    useAction: 0
+    onShownAction: []
+    onAdvancedAction: []
+    onShown:
+      m_PersistentCalls:
+        m_Calls: []
+    onAdvanced:
+      m_PersistentCalls:
+        m_Calls: []
+  - speaker: 0
+    text: (thinking) Wonderful. The door has a grammar test.
+    useAction: 0
+    onShownAction: []
+    onAdvancedAction: []
+    onShown:
+      m_PersistentCalls:
+        m_Calls: []
+    onAdvanced:
+      m_PersistentCalls:
+        m_Calls: []
+  - speaker: 5
+    text: INCORRECT CODE.
+    useAction: 0
+    onShownAction: []
+    onAdvancedAction: []
+    onShown:
+      m_PersistentCalls:
+        m_Calls: []
+    onAdvanced:
+      m_PersistentCalls:
+        m_Calls: []
+  - speaker: 0
+    text: Apparently, counting was the wrong approach.
+    useAction: 0
+    onShownAction: []
+    onAdvancedAction: []
+    onShown:
+      m_PersistentCalls:
+        m_Calls: []
+    onAdvanced:
+      m_PersistentCalls:
+        m_Calls: []
+  - speaker: 5
+    text: INCORRECT CODE.
+    useAction: 0
+    onShownAction: []
+    onAdvancedAction: []
+    onShown:
+      m_PersistentCalls:
+        m_Calls: []
+    onAdvanced:
+      m_PersistentCalls:
+        m_Calls: []
+  - speaker: 1
+    text: One one. Two fours. Four. Write it down if you have to.
+    useAction: 0
+    onShownAction: []
+    onAdvancedAction: []
+    onShown:
+      m_PersistentCalls:
+        m_Calls: []
+    onAdvanced:
+      m_PersistentCalls:
+        m_Calls: []
+  - speaker: 5
+    text: ACCESS GRANTED.
+    useAction: 0
+    onShownAction: []
+    onAdvancedAction: []
+    onShown:
+      m_PersistentCalls:
+        m_Calls: []
+    onAdvanced:
+      m_PersistentCalls:
+        m_Calls: []
+  - speaker: 0
+    text: Whoever designed this deserves unemployment.
+    useAction: 0
+    onShownAction: []
+    onAdvancedAction: []
+    onShown:
+      m_PersistentCalls:
+        m_Calls: []
+    onAdvanced:
+      m_PersistentCalls:
+        m_Calls: []
+  - speaker: 1
+    text: What do you want?
+    useAction: 0
+    onShownAction: []
+    onAdvancedAction: []
+    onShown:
+      m_PersistentCalls:
+        m_Calls: []
+    onAdvanced:
+      m_PersistentCalls:
+        m_Calls: []
+  - speaker: 0
+    text: My assignment says to call a business partner from your office.
+    useAction: 0
+    onShownAction: []
+    onAdvancedAction: []
+    onShown:
+      m_PersistentCalls:
+        m_Calls: []
+    onAdvanced:
+      m_PersistentCalls:
+        m_Calls: []
+  - speaker: 1
+    text: Does it?
+    useAction: 0
+    onShownAction: []
+    onAdvancedAction: []
+    onShown:
+      m_PersistentCalls:
+        m_Calls: []
+    onAdvanced:
+      m_PersistentCalls:
+        m_Calls: []
+  - speaker: 0
+    text: You sent it.
+    useAction: 0
+    onShownAction: []
+    onAdvancedAction: []
+    onShown:
+      m_PersistentCalls:
+        m_Calls: []
+    onAdvanced:
+      m_PersistentCalls:
+        m_Calls: []
+  - speaker: 1
+    text: "I send a lot of things. Here\u2019s the number. And these are my notes."
+    useAction: 0
+    onShownAction: []
+    onAdvancedAction: []
+    onShown:
+      m_PersistentCalls:
+        m_Calls: []
+    onAdvanced:
+      m_PersistentCalls:
+        m_Calls: []
+  - speaker: 0
+    text: What exactly should I tell them?
+    useAction: 0
+    onShownAction: []
+    onAdvancedAction: []
+    onShown:
+      m_PersistentCalls:
+        m_Calls: []
+    onAdvanced:
+      m_PersistentCalls:
+        m_Calls: []
+  - speaker: 1
+    text: "It\u2019s on the paper."
+    useAction: 0
+    onShownAction: []
+    onAdvancedAction: []
+    onShown:
+      m_PersistentCalls:
+        m_Calls: []
+    onAdvanced:
+      m_PersistentCalls:
+        m_Calls: []
+  - speaker: 0
+    text: Is this definitely the right paper?
+    useAction: 0
+    onShownAction: []
+    onAdvancedAction: []
+    onShown:
+      m_PersistentCalls:
+        m_Calls: []
+    onAdvanced:
+      m_PersistentCalls:
+        m_Calls: []
+  - speaker: 1
+    text: "It was next to the phone, wasn\u2019t it?"
+    useAction: 0
+    onShownAction: []
+    onAdvancedAction: []
+    onShown:
+      m_PersistentCalls:
+        m_Calls: []
+    onAdvanced:
+      m_PersistentCalls:
+        m_Calls: []
+  - speaker: 0
+    text: (thinking) A flawless filing system.
+    useAction: 0
+    onShownAction: []
+    onAdvancedAction: []
+    onShown:
+      m_PersistentCalls:
+        m_Calls: []
+    onAdvanced:
+      m_PersistentCalls:
+        m_Calls: []
+  - speaker: 1
+    text: "Make the call. I\u2019m going home."
+    useAction: 0
+    onShownAction: []
+    onAdvancedAction: []
+    onShown:
+      m_PersistentCalls:
+        m_Calls: []
+    onAdvanced:
+      m_PersistentCalls:
+        m_Calls: []
+  - speaker: 0
+    text: "What if they ask something I don\u2019t know?"
+    useAction: 0
+    onShownAction: []
+    onAdvancedAction: []
+    onShown:
+      m_PersistentCalls:
+        m_Calls: []
+    onAdvanced:
+      m_PersistentCalls:
+        m_Calls: []
+  - speaker: 1
+    text: Sound confident.
+    useAction: 0
+    onShownAction: []
+    onAdvancedAction: []
+    onShown:
+      m_PersistentCalls:
+        m_Calls: []
+    onAdvanced:
+      m_PersistentCalls:
+        m_Calls: []
+  - speaker: 0
+    text: Right. Wrong-looking notes, no supervision, sound confident. What could
+      go wrong?
+    useAction: 0
+    onShownAction: []
+    onAdvancedAction: []
+    onShown:
+      m_PersistentCalls:
+        m_Calls: []
+    onAdvanced:
+      m_PersistentCalls:
+        m_Calls: []
+  - speaker: 0
+    text: Who shuffled the numbers?
+    useAction: 0
+    onShownAction: []
+    onAdvancedAction: []
+    onShown:
+      m_PersistentCalls:
+        m_Calls: []
+    onAdvanced:
+      m_PersistentCalls:
+        m_Calls: []
+  - speaker: 0
+    text: Even the phone has an attitude.
+    useAction: 0
+    onShownAction: []
+    onAdvancedAction: []
+    onShown:
+      m_PersistentCalls:
+        m_Calls: []
+    onAdvanced:
+      m_PersistentCalls:
+        m_Calls: []
+  - speaker: 6
+    text: The number you have dialled is unavailable.
+    useAction: 0
+    onShownAction: []
+    onAdvancedAction: []
+    onShown:
+      m_PersistentCalls:
+        m_Calls: []
+    onAdvanced:
+      m_PersistentCalls:
+        m_Calls: []
+  - speaker: 0
+    text: Probably escaped this company.
+    useAction: 0
+    onShownAction: []
+    onAdvancedAction: []
+    onShown:
+      m_PersistentCalls:
+        m_Calls: []
+    onAdvanced:
+      m_PersistentCalls:
+        m_Calls: []
+  - speaker: 6
+    text: This number is no longer in service.
+    useAction: 0
+    onShownAction: []
+    onAdvancedAction: []
+    onShown:
+      m_PersistentCalls:
+        m_Calls: []
+    onAdvanced:
+      m_PersistentCalls:
+        m_Calls: []
+  - speaker: 0
+    text: Crossed out for a reason. Fair enough.
+    useAction: 0
+    onShownAction: []
+    onAdvancedAction: []
+    onShown:
+      m_PersistentCalls:
+        m_Calls: []
+    onAdvanced:
+      m_PersistentCalls:
+        m_Calls: []
+  - speaker: 2
+    text: Hello, purchasing department.
+    useAction: 0
+    onShownAction: []
+    onAdvancedAction: []
+    onShown:
+      m_PersistentCalls:
+        m_Calls: []
+    onAdvanced:
+      m_PersistentCalls:
+        m_Calls: []
+  - speaker: 0
+    text: "Hi. I\u2019m calling from Mrs. Darwin\u2019s office."
+    useAction: 0
+    onShownAction: []
+    onAdvancedAction: []
+    onShown:
+      m_PersistentCalls:
+        m_Calls: []
+    onAdvanced:
+      m_PersistentCalls:
+        m_Calls: []
+  - speaker: 2
+    text: "Ah, about tomorrow\u2019s delivery?"
+    useAction: 0
+    onShownAction: []
+    onAdvancedAction: []
+    onShown:
+      m_PersistentCalls:
+        m_Calls: []
+    onAdvanced:
+      m_PersistentCalls:
+        m_Calls: []
+  - speaker: 0
+    text: '(thinking) Delivery? These notes say something about an interview. '
+    useAction: 0
+    onShownAction: []
+    onAdvancedAction: []
+    onShown:
+      m_PersistentCalls:
+        m_Calls: []
+    onAdvanced:
+      m_PersistentCalls:
+        m_Calls: []
+  - speaker: 0
+    text: Yes. That.
+    useAction: 0
+    onShownAction: []
+    onAdvancedAction: []
+    onShown:
+      m_PersistentCalls:
+        m_Calls: []
+    onAdvanced:
+      m_PersistentCalls:
+        m_Calls: []
+  - speaker: 2
+    text: Can you confirm the entire order will arrive by nine tomorrow morning?
+    useAction: 0
+    onShownAction: []
+    onAdvancedAction: []
+    onShown:
+      m_PersistentCalls:
+        m_Calls: []
+    onAdvanced:
+      m_PersistentCalls:
+        m_Calls: []
+  - speaker: 0
+    text: (thinking) Sound confident.
+    useAction: 0
+    onShownAction: []
+    onAdvancedAction: []
+    onShown:
+      m_PersistentCalls:
+        m_Calls: []
+    onAdvanced:
+      m_PersistentCalls:
+        m_Calls: []
+  - speaker: 0
+    text: Absolutely. Everything. Nine sharp.
+    useAction: 0
+    onShownAction: []
+    onAdvancedAction: []
+    onShown:
+      m_PersistentCalls:
+        m_Calls: []
+    onAdvanced:
+      m_PersistentCalls:
+        m_Calls: []
+  - speaker: 2
+    text: "Excellent. We\u2019ll have our staff ready to receive it."
+    useAction: 0
+    onShownAction: []
+    onAdvancedAction: []
+    onShown:
+      m_PersistentCalls:
+        m_Calls: []
+    onAdvanced:
+      m_PersistentCalls:
+        m_Calls: []
+  - speaker: 0
+    text: Mrs. Darwin has it all under control.
+    useAction: 0
+    onShownAction: []
+    onAdvancedAction: []
+    onShown:
+      m_PersistentCalls:
+        m_Calls: []
+    onAdvanced:
+      m_PersistentCalls:
+        m_Calls: []
+  - speaker: 2
+    text: "Good. Then I\u2019ll take that as confirmation from her office."
+    useAction: 0
+    onShownAction: []
+    onAdvancedAction: []
+    onShown:
+      m_PersistentCalls:
+        m_Calls: []
+    onAdvanced:
+      m_PersistentCalls:
+        m_Calls: []
+  - speaker: 0
+    text: "My notes say nine tomorrow. So\u2026 yes."
+    useAction: 0
+    onShownAction: []
+    onAdvancedAction: []
+    onShown:
+      m_PersistentCalls:
+        m_Calls: []
+    onAdvanced:
+      m_PersistentCalls:
+        m_Calls: []
+  - speaker: 2
+    text: Perfect. That matches our schedule.
+    useAction: 0
+    onShownAction: []
+    onAdvancedAction: []
+    onShown:
+      m_PersistentCalls:
+        m_Calls: []
+    onAdvanced:
+      m_PersistentCalls:
+        m_Calls: []
+  - speaker: 2
+    text: Including the additional units we discussed?
+    useAction: 0
+    onShownAction: []
+    onAdvancedAction: []
+    onShown:
+      m_PersistentCalls:
+        m_Calls: []
+    onAdvanced:
+      m_PersistentCalls:
+        m_Calls: []
+  - speaker: 0
+    text: (thinking) Additional what?
+    useAction: 0
+    onShownAction: []
+    onAdvancedAction: []
+    onShown:
+      m_PersistentCalls:
+        m_Calls: []
+    onAdvanced:
+      m_PersistentCalls:
+        m_Calls: []
+  - speaker: 0
+    text: Especially those.
+    useAction: 0
+    onShownAction: []
+    onAdvancedAction: []
+    onShown:
+      m_PersistentCalls:
+        m_Calls: []
+    onAdvanced:
+      m_PersistentCalls:
+        m_Calls: []
+  - speaker: 2
+    text: Glad to hear you remembered.
+    useAction: 0
+    onShownAction: []
+    onAdvancedAction: []
+    onShown:
+      m_PersistentCalls:
+        m_Calls: []
+    onAdvanced:
+      m_PersistentCalls:
+        m_Calls: []
+  - speaker: 0
+    text: Every single one.
+    useAction: 0
+    onShownAction: []
+    onAdvancedAction: []
+    onShown:
+      m_PersistentCalls:
+        m_Calls: []
+    onAdvanced:
+      m_PersistentCalls:
+        m_Calls: []
+  - speaker: 2
+    text: Good. We need the complete order.
+    useAction: 0
+    onShownAction: []
+    onAdvancedAction: []
+    onShown:
+      m_PersistentCalls:
+        m_Calls: []
+    onAdvanced:
+      m_PersistentCalls:
+        m_Calls: []
+  - speaker: 0
+    text: If you requested them, consider them included.
+    useAction: 0
+    onShownAction: []
+    onAdvancedAction: []
+    onShown:
+      m_PersistentCalls:
+        m_Calls: []
+    onAdvanced:
+      m_PersistentCalls:
+        m_Calls: []
+  - speaker: 2
+    text: "Excellent. I\u2019ll notify our team."
+    useAction: 0
+    onShownAction: []
+    onAdvancedAction: []
+    onShown:
+      m_PersistentCalls:
+        m_Calls: []
+    onAdvanced:
+      m_PersistentCalls:
+        m_Calls: []
+  - speaker: 2
+    text: "Just to be clear: the entire order, including the additional units, delivered
+      by nine tomorrow morning. You\u2019re confirming that?"
+    useAction: 0
+    onShownAction: []
+    onAdvancedAction: []
+    onShown:
+      m_PersistentCalls:
+        m_Calls: []
+    onAdvanced:
+      m_PersistentCalls:
+        m_Calls: []
+  - speaker: 0
+    text: (thinking) They keep asking. Must be impressed.
+    useAction: 0
+    onShownAction: []
+    onAdvancedAction: []
+    onShown:
+      m_PersistentCalls:
+        m_Calls: []
+    onAdvanced:
+      m_PersistentCalls:
+        m_Calls: []
+  - speaker: 0
+    text: Yes. You have my word.
+    useAction: 0
+    onShownAction: []
+    onAdvancedAction: []
+    onShown:
+      m_PersistentCalls:
+        m_Calls: []
+    onAdvanced:
+      m_PersistentCalls:
+        m_Calls: []
+  - speaker: 2
+    text: "Thank you. I\u2019ve recorded your confirmation."
+    useAction: 0
+    onShownAction: []
+    onAdvancedAction: []
+    onShown:
+      m_PersistentCalls:
+        m_Calls: []
+    onAdvanced:
+      m_PersistentCalls:
+        m_Calls: []
+  - speaker: 0
+    text: Yes. On behalf of Mrs. Darwin.
+    useAction: 0
+    onShownAction: []
+    onAdvancedAction: []
+    onShown:
+      m_PersistentCalls:
+        m_Calls: []
+    onAdvanced:
+      m_PersistentCalls:
+        m_Calls: []
+  - speaker: 2
+    text: "Understood. I\u2019ve recorded confirmation from her office."
+    useAction: 0
+    onShownAction: []
+    onAdvancedAction: []
+    onShown:
+      m_PersistentCalls:
+        m_Calls: []
+    onAdvanced:
+      m_PersistentCalls:
+        m_Calls: []
+  - speaker: 0
+    text: Yes. Please stop asking before I lose confidence.
+    useAction: 0
+    onShownAction: []
+    onAdvancedAction: []
+    onShown:
+      m_PersistentCalls:
+        m_Calls: []
+    onAdvanced:
+      m_PersistentCalls:
+        m_Calls: []
+  - speaker: 2
+    text: "\u2026Right. I\u2019ve recorded your confirmation."
+    useAction: 0
+    onShownAction: []
+    onAdvancedAction: []
+    onShown:
+      m_PersistentCalls:
+        m_Calls: []
+    onAdvanced:
+      m_PersistentCalls:
+        m_Calls: []
+  - speaker: 2
+    text: "We\u2019re scheduling our staff and notifying our customers based on this.
+      Please let Mrs. Darwin know."
+    useAction: 0
+    onShownAction: []
+    onAdvancedAction: []
+    onShown:
+      m_PersistentCalls:
+        m_Calls: []
+    onAdvanced:
+      m_PersistentCalls:
+        m_Calls: []
+  - speaker: 0
+    text: Consider it handled.
+    useAction: 0
+    onShownAction: []
+    onAdvancedAction: []
+    onShown:
+      m_PersistentCalls:
+        m_Calls: []
+    onAdvanced:
+      m_PersistentCalls:
+        m_Calls: []
+  - speaker: 2
+    text: Thank you. Goodbye.
+    useAction: 0
+    onShownAction: []
+    onAdvancedAction: []
+    onShown:
+      m_PersistentCalls:
+        m_Calls: []
+    onAdvanced:
+      m_PersistentCalls:
+        m_Calls: []
+  - speaker: 0
+    text: "No idea what we\u2019re delivering, but apparently we\u2019re excellent
+      at it."
+    useAction: 0
+    onShownAction: []
+    onAdvancedAction: []
+    onShown:
+      m_PersistentCalls:
+        m_Calls: []
+    onAdvanced:
+      m_PersistentCalls:
+        m_Calls: []
+  - speaker: 0
+    text: Task complete. Probably.
+    useAction: 0
+    onShownAction: []
+    onAdvancedAction: []
+    onShown:
+      m_PersistentCalls:
+        m_Calls: []
+    onAdvanced:
+      m_PersistentCalls:
+        m_Calls: []

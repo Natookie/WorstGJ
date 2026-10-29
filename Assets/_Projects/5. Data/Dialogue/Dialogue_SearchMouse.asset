@@ -1,0 +1,323 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 97028838fcdf09046bb2f92640945ac4, type: 3}
+  m_Name: Dialogue_SearchMouse
+  m_EditorClassIdentifier: Assembly-CSharp::DialogueAsset
+  lines:
+  - speaker: 0
+    text: Coffee delivered. Now I can finally do my actual job.
+    useAction: 0
+    onShownAction: []
+    onAdvancedAction: []
+    onShown:
+      m_PersistentCalls:
+        m_Calls: []
+    onAdvanced:
+      m_PersistentCalls:
+        m_Calls: []
+  - speaker: 0
+    text: Where the hell is my mouse?
+    useAction: 0
+    onShownAction: []
+    onAdvancedAction: []
+    onShown:
+      m_PersistentCalls:
+        m_Calls: []
+    onAdvanced:
+      m_PersistentCalls:
+        m_Calls: []
+  - speaker: 0
+    text: Hey, do you know where my mouse is?
+    useAction: 0
+    onShownAction: []
+    onAdvancedAction: []
+    onShown:
+      m_PersistentCalls:
+        m_Calls: []
+    onAdvanced:
+      m_PersistentCalls:
+        m_Calls: []
+  - speaker: 3
+    text: Storage.
+    useAction: 0
+    onShownAction: []
+    onAdvancedAction: []
+    onShown:
+      m_PersistentCalls:
+        m_Calls: []
+    onAdvanced:
+      m_PersistentCalls:
+        m_Calls: []
+  - speaker: 0
+    text: Where in storage?
+    useAction: 0
+    onShownAction: []
+    onAdvancedAction: []
+    onShown:
+      m_PersistentCalls:
+        m_Calls: []
+    onAdvanced:
+      m_PersistentCalls:
+        m_Calls: []
+  - speaker: 3
+    text: Box marked M. M for mouse. Anything else?
+    useAction: 0
+    onShownAction: []
+    onAdvancedAction: []
+    onShown:
+      m_PersistentCalls:
+        m_Calls: []
+    onAdvanced:
+      m_PersistentCalls:
+        m_Calls: []
+  - speaker: 0
+    text: No, thanks.
+    useAction: 0
+    onShownAction: []
+    onAdvancedAction: []
+    onShown:
+      m_PersistentCalls:
+        m_Calls: []
+    onAdvanced:
+      m_PersistentCalls:
+        m_Calls: []
+  - speaker: 0
+    text: (thinking) Friendly place.
+    useAction: 0
+    onShownAction: []
+    onAdvancedAction: []
+    onShown:
+      m_PersistentCalls:
+        m_Calls: []
+    onAdvanced:
+      m_PersistentCalls:
+        m_Calls: []
+  - speaker: 3
+    text: Storage. M. Mouse. Same answer. Stupidshit.
+    useAction: 0
+    onShownAction: []
+    onAdvancedAction: []
+    onShown:
+      m_PersistentCalls:
+        m_Calls: []
+    onAdvanced:
+      m_PersistentCalls:
+        m_Calls: []
+  - speaker: 0
+    text: Did they forget to pay the electricity bill?
+    useAction: 0
+    onShownAction: []
+    onAdvancedAction: []
+    onShown:
+      m_PersistentCalls:
+        m_Calls: []
+    onAdvanced:
+      m_PersistentCalls:
+        m_Calls: []
+  - speaker: 0
+    text: "Guess I\u2019ll have to get closer to read these labels."
+    useAction: 0
+    onShownAction: []
+    onAdvancedAction: []
+    onShown:
+      m_PersistentCalls:
+        m_Calls: []
+    onAdvanced:
+      m_PersistentCalls:
+        m_Calls: []
+  - speaker: 0
+    text: M. That should be it.
+    useAction: 0
+    onShownAction: []
+    onAdvancedAction: []
+    onShown:
+      m_PersistentCalls:
+        m_Calls: []
+    onAdvanced:
+      m_PersistentCalls:
+        m_Calls: []
+  - speaker: 0
+    text: A mug. Of course. M for mug.
+    useAction: 0
+    onShownAction: []
+    onAdvancedAction: []
+    onShown:
+      m_PersistentCalls:
+        m_Calls: []
+    onAdvanced:
+      m_PersistentCalls:
+        m_Calls: []
+  - speaker: 0
+    text: "Apparently, the coffee tutorial isn\u2019t over."
+    useAction: 0
+    onShownAction: []
+    onAdvancedAction: []
+    onShown:
+      m_PersistentCalls:
+        m_Calls: []
+    onAdvanced:
+      m_PersistentCalls:
+        m_Calls: []
+  - speaker: 0
+    text: A mirror.
+    useAction: 0
+    onShownAction: []
+    onAdvancedAction: []
+    onShown:
+      m_PersistentCalls:
+        m_Calls: []
+    onAdvanced:
+      m_PersistentCalls:
+        m_Calls: []
+  - speaker: 0
+    text: Great. Now I can watch myself regret taking this job.
+    useAction: 0
+    onShownAction: []
+    onAdvancedAction: []
+    onShown:
+      m_PersistentCalls:
+        m_Calls: []
+    onAdvanced:
+      m_PersistentCalls:
+        m_Calls: []
+  - speaker: 0
+    text: A keyboard? How is that M?
+    useAction: 0
+    onShownAction: []
+    onAdvancedAction: []
+    onShown:
+      m_PersistentCalls:
+        m_Calls: []
+    onAdvanced:
+      m_PersistentCalls:
+        m_Calls: []
+  - speaker: 0
+    text: "There\u2019s a note. \u2018Might still work."
+    useAction: 0
+    onShownAction: []
+    onAdvancedAction: []
+    onShown:
+      m_PersistentCalls:
+        m_Calls: []
+    onAdvanced:
+      m_PersistentCalls:
+        m_Calls: []
+  - speaker: 0
+    text: "That\u2019s not a fucking category."
+    useAction: 0
+    onShownAction: []
+    onAdvancedAction: []
+    onShown:
+      m_PersistentCalls:
+        m_Calls: []
+    onAdvanced:
+      m_PersistentCalls:
+        m_Calls: []
+  - speaker: 0
+    text: Another box.
+    useAction: 0
+    onShownAction: []
+    onAdvancedAction: []
+    onShown:
+      m_PersistentCalls:
+        m_Calls: []
+    onAdvanced:
+      m_PersistentCalls:
+        m_Calls: []
+  - speaker: 0
+    text: "More boxes.\u2019 Whoever labelled these thinks they\u2019re hilarious."
+    useAction: 0
+    onShownAction: []
+    onAdvancedAction: []
+    onShown:
+      m_PersistentCalls:
+        m_Calls: []
+    onAdvanced:
+      m_PersistentCalls:
+        m_Calls: []
+  - speaker: 0
+    text: Empty.
+    useAction: 0
+    onShownAction: []
+    onAdvancedAction: []
+    onShown:
+      m_PersistentCalls:
+        m_Calls: []
+    onAdvanced:
+      m_PersistentCalls:
+        m_Calls: []
+  - speaker: 0
+    text: "Should\u2019ve labelled this one \u2018Massive waste of time."
+    useAction: 0
+    onShownAction: []
+    onAdvancedAction: []
+    onShown:
+      m_PersistentCalls:
+        m_Calls: []
+    onAdvanced:
+      m_PersistentCalls:
+        m_Calls: []
+  - speaker: 0
+    text: An actual mouse. Holy shit.
+    useAction: 0
+    onShownAction: []
+    onAdvancedAction: []
+    onShown:
+      m_PersistentCalls:
+        m_Calls: []
+    onAdvanced:
+      m_PersistentCalls:
+        m_Calls: []
+  - speaker: 0
+    text: M for mouse. You did it. You labelled one correctly.
+    useAction: 0
+    onShownAction: []
+    onAdvancedAction: []
+    onShown:
+      m_PersistentCalls:
+        m_Calls: []
+    onAdvanced:
+      m_PersistentCalls:
+        m_Calls: []
+  - speaker: 0
+    text: Alright. Back to my desk before someone asks for another coffee.
+    useAction: 0
+    onShownAction: []
+    onAdvancedAction: []
+    onShown:
+      m_PersistentCalls:
+        m_Calls: []
+    onAdvanced:
+      m_PersistentCalls:
+        m_Calls: []
+  - speaker: 0
+    text: There. Mouse plugged in.
+    useAction: 0
+    onShownAction: []
+    onAdvancedAction: []
+    onShown:
+      m_PersistentCalls:
+        m_Calls: []
+    onAdvanced:
+      m_PersistentCalls:
+        m_Calls: []
+  - speaker: 0
+    text: "Let\u2019s see what Grandma considers IT work."
+    useAction: 0
+    onShownAction: []
+    onAdvancedAction: []
+    onShown:
+      m_PersistentCalls:
+        m_Calls: []
+    onAdvanced:
+      m_PersistentCalls:
+        m_Calls: []

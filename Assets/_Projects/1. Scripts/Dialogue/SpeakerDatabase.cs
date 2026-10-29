@@ -7,6 +7,9 @@ public enum SpeakerType
     Grandma,
     StudioGuy,
     Worker, 
+    Computer,
+    Door,
+    Phone,
 }
 
 [CreateAssetMenu(fileName = "SpeakerDatabase", menuName = "Dialogue/Speaker Database")]

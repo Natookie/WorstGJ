@@ -12,4 +12,209 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 97028838fcdf09046bb2f92640945ac4, type: 3}
   m_Name: Dialogue_Coffee
   m_EditorClassIdentifier: Assembly-CSharp::DialogueAsset
-  lines: []
+  lines:
+  - speaker: 0
+    text: "So this is where I\u2019m working. Pretty cool."
+    useAction: 0
+    onShownAction: []
+    onAdvancedAction: []
+    onShown:
+      m_PersistentCalls:
+        m_Calls: []
+    onAdvanced:
+      m_PersistentCalls:
+        m_Calls: []
+  - speaker: 1
+    text: "Oh, you\u2019re the intern. Well, welcome."
+    useAction: 0
+    onShownAction: []
+    onAdvancedAction: []
+    onShown:
+      m_PersistentCalls:
+        m_Calls: []
+    onAdvanced:
+      m_PersistentCalls:
+        m_Calls: []
+  - speaker: 0
+    text: "Yep, that\u2019s me."
+    useAction: 0
+    onShownAction: []
+    onAdvancedAction: []
+    onShown:
+      m_PersistentCalls:
+        m_Calls: []
+    onAdvanced:
+      m_PersistentCalls:
+        m_Calls: []
+  - speaker: 1
+    text: "Well, I don\u2019t usually take interns or a newb like you, so I have
+      no idea what you\u2019re supposed to do today. Ehm maybe make me some coffee
+      for starters."
+    useAction: 0
+    onShownAction: []
+    onAdvancedAction: []
+    onShown:
+      m_PersistentCalls:
+        m_Calls: []
+    onAdvanced:
+      m_PersistentCalls:
+        m_Calls: []
+  - speaker: 0
+    text: What a fucking boss.
+    useAction: 0
+    onShownAction: []
+    onAdvancedAction: []
+    onShown:
+      m_PersistentCalls:
+        m_Calls: []
+    onAdvanced:
+      m_PersistentCalls:
+        m_Calls: []
+  - speaker: 1
+    text: "Here\u2019s the recipe: one coffee, two sugar cubes, hot water."
+    useAction: 0
+    onShownAction: []
+    onAdvancedAction: []
+    onShown:
+      m_PersistentCalls:
+        m_Calls: []
+    onAdvanced:
+      m_PersistentCalls:
+        m_Calls: []
+  - speaker: 0
+    text: Sure, Grandma, but where do I make it?
+    useAction: 0
+    onShownAction: []
+    onAdvancedAction: []
+    onShown:
+      m_PersistentCalls:
+        m_Calls: []
+    onAdvanced:
+      m_PersistentCalls:
+        m_Calls: []
+  - speaker: 1
+    text: "Call me Grandma again and I\u2019ll smack you. Find it yourself. There\u2019s
+      a pantry somewhere. Explore the place while you\u2019re at it. You don\u2019t
+      have a mentor to babysit you."
+    useAction: 0
+    onShownAction: []
+    onAdvancedAction: []
+    onShown:
+      m_PersistentCalls:
+        m_Calls: []
+    onAdvanced:
+      m_PersistentCalls:
+        m_Calls: []
+  - speaker: 0
+    text: "There\u2019? Where the hell is \u2018there\u2019? Couldn\u2019t afford
+      a fucking arrow?"
+    useAction: 0
+    onShownAction: []
+    onAdvancedAction: []
+    onShown:
+      m_PersistentCalls:
+        m_Calls: []
+    onAdvanced:
+      m_PersistentCalls:
+        m_Calls: []
+  - speaker: 0
+    text: How do I use this thing?
+    useAction: 0
+    onShownAction: []
+    onAdvancedAction: []
+    onShown:
+      m_PersistentCalls:
+        m_Calls: []
+    onAdvanced:
+      m_PersistentCalls:
+        m_Calls: []
+  - speaker: 0
+    text: Finally. One coffee, coming right up.
+    useAction: 0
+    onShownAction: []
+    onAdvancedAction: []
+    onShown:
+      m_PersistentCalls:
+        m_Calls: []
+    onAdvanced:
+      m_PersistentCalls:
+        m_Calls: []
+  - speaker: 0
+    text: "Where\u2019d that old hag go? Guess I\u2019ll check her office."
+    useAction: 0
+    onShownAction: []
+    onAdvancedAction: []
+    onShown:
+      m_PersistentCalls:
+        m_Calls: []
+    onAdvanced:
+      m_PersistentCalls:
+        m_Calls: []
+  - speaker: 1
+    text: What took you so long? Has nobody ever taught you how to make coffee?
+    useAction: 0
+    onShownAction: []
+    onAdvancedAction: []
+    onShown:
+      m_PersistentCalls:
+        m_Calls: []
+    onAdvanced:
+      m_PersistentCalls:
+        m_Calls: []
+  - speaker: 0
+    text: "You old bitch. I had to find the pantry myself, figure out the machine
+      myself, and now you\u2019re complaining I took too long?"
+    useAction: 0
+    onShownAction: []
+    onAdvancedAction: []
+    onShown:
+      m_PersistentCalls:
+        m_Calls: []
+    onAdvanced:
+      m_PersistentCalls:
+        m_Calls: []
+  - speaker: 0
+    text: "Sorry, Mrs. I don\u2019t make coffee very often."
+    useAction: 0
+    onShownAction: []
+    onAdvancedAction: []
+    onShown:
+      m_PersistentCalls:
+        m_Calls: []
+    onAdvanced:
+      m_PersistentCalls:
+        m_Calls: []
+  - speaker: 1
+    text: "Whatever. Go to your desk. I\u2019ve already put your assignments on your
+      computer."
+    useAction: 0
+    onShownAction: []
+    onAdvancedAction: []
+    onShown:
+      m_PersistentCalls:
+        m_Calls: []
+    onAdvanced:
+      m_PersistentCalls:
+        m_Calls: []
+  - speaker: 0
+    text: Okay, Grandma.
+    useAction: 0
+    onShownAction: []
+    onAdvancedAction: []
+    onShown:
+      m_PersistentCalls:
+        m_Calls: []
+    onAdvanced:
+      m_PersistentCalls:
+        m_Calls: []
+  - speaker: 1
+    text: You son of a b.
+    useAction: 0
+    onShownAction: []
+    onAdvancedAction: []
+    onShown:
+      m_PersistentCalls:
+        m_Calls: []
+    onAdvanced:
+      m_PersistentCalls:
+        m_Calls: []

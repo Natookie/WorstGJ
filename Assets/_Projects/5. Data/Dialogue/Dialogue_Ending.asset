@@ -1,0 +1,326 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 97028838fcdf09046bb2f92640945ac4, type: 3}
+  m_Name: Dialogue_Ending
+  m_EditorClassIdentifier: Assembly-CSharp::DialogueAsset
+  lines:
+  - speaker: 2
+    text: Mrs. Darwin, your office confirmed the entire delivery for nine tomorrow
+      morning.
+    useAction: 0
+    onShownAction: []
+    onAdvancedAction: []
+    onShown:
+      m_PersistentCalls:
+        m_Calls: []
+    onAdvanced:
+      m_PersistentCalls:
+        m_Calls: []
+  - speaker: 1
+    text: "What? No. That order won\u2019t be ready until next week."
+    useAction: 0
+    onShownAction: []
+    onAdvancedAction: []
+    onShown:
+      m_PersistentCalls:
+        m_Calls: []
+    onAdvanced:
+      m_PersistentCalls:
+        m_Calls: []
+  - speaker: 2
+    text: Then why did your employee guarantee it?
+    useAction: 0
+    onShownAction: []
+    onAdvancedAction: []
+    onShown:
+      m_PersistentCalls:
+        m_Calls: []
+    onAdvanced:
+      m_PersistentCalls:
+        m_Calls: []
+  - speaker: 1
+    text: My employee?
+    useAction: 0
+    onShownAction: []
+    onAdvancedAction: []
+    onShown:
+      m_PersistentCalls:
+        m_Calls: []
+    onAdvanced:
+      m_PersistentCalls:
+        m_Calls: []
+  - speaker: 2
+    text: The one who called from your office. Very confident. Apparently, very wrong.
+    useAction: 0
+    onShownAction: []
+    onAdvancedAction: []
+    onShown:
+      m_PersistentCalls:
+        m_Calls: []
+    onAdvanced:
+      m_PersistentCalls:
+        m_Calls: []
+  - speaker: 1
+    text: "That was the intern. There\u2019s been a misunderstanding."
+    useAction: 0
+    onShownAction: []
+    onAdvancedAction: []
+    onShown:
+      m_PersistentCalls:
+        m_Calls: []
+    onAdvanced:
+      m_PersistentCalls:
+        m_Calls: []
+  - speaker: 2
+    text: We scheduled staff and made promises to our own customers based on that
+      call.
+    useAction: 0
+    onShownAction: []
+    onAdvancedAction: []
+    onShown:
+      m_PersistentCalls:
+        m_Calls: []
+    onAdvanced:
+      m_PersistentCalls:
+        m_Calls: []
+  - speaker: 1
+    text: "Let me sort this out\u2014"
+    useAction: 0
+    onShownAction: []
+    onAdvancedAction: []
+    onShown:
+      m_PersistentCalls:
+        m_Calls: []
+    onAdvanced:
+      m_PersistentCalls:
+        m_Calls: []
+  - speaker: 2
+    text: "We\u2019re cancelling the partnership. Send any remaining paperwork by
+      email."
+    useAction: 0
+    onShownAction: []
+    onAdvancedAction: []
+    onShown:
+      m_PersistentCalls:
+        m_Calls: []
+    onAdvanced:
+      m_PersistentCalls:
+        m_Calls: []
+  - speaker: 1
+    text: "Wait\u2014"
+    useAction: 0
+    onShownAction: []
+    onAdvancedAction: []
+    onShown:
+      m_PersistentCalls:
+        m_Calls: []
+    onAdvanced:
+      m_PersistentCalls:
+        m_Calls: []
+  - speaker: 2
+    text: Goodbye, Mrs. Darwin.
+    useAction: 0
+    onShownAction: []
+    onAdvancedAction: []
+    onShown:
+      m_PersistentCalls:
+        m_Calls: []
+    onAdvanced:
+      m_PersistentCalls:
+        m_Calls: []
+  - speaker: 1
+    text: INTERN C'MERE BOY
+    useAction: 0
+    onShownAction: []
+    onAdvancedAction: []
+    onShown:
+      m_PersistentCalls:
+        m_Calls: []
+    onAdvanced:
+      m_PersistentCalls:
+        m_Calls: []
+  - speaker: 0
+    text: If this is about the coffee, I followed the recipe.
+    useAction: 0
+    onShownAction: []
+    onAdvancedAction: []
+    onShown:
+      m_PersistentCalls:
+        m_Calls: []
+    onAdvanced:
+      m_PersistentCalls:
+        m_Calls: []
+  - speaker: 1
+    text: DID YOU PROMISE OUT PARTNER A FULL DELIVERY TOMORROW??
+    useAction: 0
+    onShownAction: []
+    onAdvancedAction: []
+    onShown:
+      m_PersistentCalls:
+        m_Calls: []
+    onAdvanced:
+      m_PersistentCalls:
+        m_Calls: []
+  - speaker: 0
+    text: They asked if it would be ready. I said yes.
+    useAction: 0
+    onShownAction: []
+    onAdvancedAction: []
+    onShown:
+      m_PersistentCalls:
+        m_Calls: []
+    onAdvanced:
+      m_PersistentCalls:
+        m_Calls: []
+  - speaker: 1
+    text: WITHOUT EVEN FUCKING CHECKING?
+    useAction: 0
+    onShownAction: []
+    onAdvancedAction: []
+    onShown:
+      m_PersistentCalls:
+        m_Calls: []
+    onAdvanced:
+      m_PersistentCalls:
+        m_Calls: []
+  - speaker: 0
+    text: You told me to sound confident.
+    useAction: 0
+    onShownAction: []
+    onAdvancedAction: []
+    onShown:
+      m_PersistentCalls:
+        m_Calls: []
+    onAdvanced:
+      m_PersistentCalls:
+        m_Calls: []
+  - speaker: 1
+    text: I told you to sound confident. NOT BEING DUMB
+    useAction: 0
+    onShownAction: []
+    onAdvancedAction: []
+    onShown:
+      m_PersistentCalls:
+        m_Calls: []
+    onAdvanced:
+      m_PersistentCalls:
+        m_Calls: []
+  - speaker: 0
+    text: To be fair, they invented the date. I just supported it.
+    useAction: 0
+    onShownAction: []
+    onAdvancedAction: []
+    onShown:
+      m_PersistentCalls:
+        m_Calls: []
+    onAdvanced:
+      m_PersistentCalls:
+        m_Calls: []
+  - speaker: 1
+    text: "They\u2019ve cancelled the partnership."
+    useAction: 0
+    onShownAction: []
+    onAdvancedAction: []
+    onShown:
+      m_PersistentCalls:
+        m_Calls: []
+    onAdvanced:
+      m_PersistentCalls:
+        m_Calls: []
+  - speaker: 0
+    text: "\u2026So I shouldn\u2019t mark that task as complete?"
+    useAction: 0
+    onShownAction: []
+    onAdvancedAction: []
+    onShown:
+      m_PersistentCalls:
+        m_Calls: []
+    onAdvanced:
+      m_PersistentCalls:
+        m_Calls: []
+  - speaker: 1
+    text: "You\u2019re fired."
+    useAction: 0
+    onShownAction: []
+    onAdvancedAction: []
+    onShown:
+      m_PersistentCalls:
+        m_Calls: []
+    onAdvanced:
+      m_PersistentCalls:
+        m_Calls: []
+  - speaker: 0
+    text: On my first day?
+    useAction: 0
+    onShownAction: []
+    onAdvancedAction: []
+    onShown:
+      m_PersistentCalls:
+        m_Calls: []
+    onAdvanced:
+      m_PersistentCalls:
+        m_Calls: []
+  - speaker: 1
+    text: Congratulations. You finished early.
+    useAction: 0
+    onShownAction: []
+    onAdvancedAction: []
+    onShown:
+      m_PersistentCalls:
+        m_Calls: []
+    onAdvanced:
+      m_PersistentCalls:
+        m_Calls: []
+  - speaker: 0
+    text: Okay, Grandma.
+    useAction: 0
+    onShownAction: []
+    onAdvancedAction: []
+    onShown:
+      m_PersistentCalls:
+        m_Calls: []
+    onAdvanced:
+      m_PersistentCalls:
+        m_Calls: []
+  - speaker: 1
+    text: GET OUT.
+    useAction: 0
+    onShownAction: []
+    onAdvancedAction: []
+    onShown:
+      m_PersistentCalls:
+        m_Calls: []
+    onAdvanced:
+      m_PersistentCalls:
+        m_Calls: []
+  - speaker: 0
+    text: (thinking) Made coffee. Found a mouse. Ended a partnership.
+    useAction: 0
+    onShownAction: []
+    onAdvancedAction: []
+    onShown:
+      m_PersistentCalls:
+        m_Calls: []
+    onAdvanced:
+      m_PersistentCalls:
+        m_Calls: []
+  - speaker: 0
+    text: (thinking) Pretty productive first day.
+    useAction: 0
+    onShownAction: []
+    onAdvancedAction: []
+    onShown:
+      m_PersistentCalls:
+        m_Calls: []
+    onAdvanced:
+      m_PersistentCalls:
+        m_Calls: []
